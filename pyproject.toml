@@ -3,7 +3,9 @@ name = "capital-algo"
 version = "0.1.0"
 description = "Strategy-swappable and broker-swappable algo trading framework."
 requires-python = ">=3.9"
-dependencies = []
+dependencies = [
+  "certifi>=2024.8.30"
+]
 
 [project.scripts]
 capital-algo = "capital_algo.cli:main"

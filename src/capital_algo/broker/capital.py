@@ -10,6 +10,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any
 
+from capital_algo.http import default_ssl_context
 from capital_algo.models import AccountSnapshot, Candle, OrderRequest, OrderResult, OrderStatus, Position, TradeAction
 
 
@@ -35,6 +36,7 @@ class CapitalClient:
             if environment == "live"
             else "https://demo-api-capital.backend-capital.com/api/v1"
         )
+        self.ssl_context = default_ssl_context()
         self.session: CapitalSession | None = None
 
     def connect(self) -> None:
@@ -235,7 +237,7 @@ class CapitalClient:
         )
         for attempt in range(self.max_retries + 1):
             try:
-                with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
+                with urllib.request.urlopen(request, timeout=self.timeout_seconds, context=self.ssl_context) as response:
                     text = response.read().decode("utf-8")
                     parsed = json.loads(text) if text else {}
                     return parsed, {key.lower(): value for key, value in response.headers.items()}

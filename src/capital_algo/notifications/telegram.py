@@ -8,6 +8,8 @@ import urllib.request
 from datetime import datetime, timezone
 from typing import Any
 
+from capital_algo.http import default_ssl_context
+
 
 class TelegramNotificationError(RuntimeError):
     """Raised when Telegram rejects or cannot receive a message."""
@@ -20,6 +22,7 @@ class TelegramNotifier:
         self.token_env = str(self.config.get("bot_token_env", "TELEGRAM_BOT_TOKEN"))
         self.chat_id_env = str(self.config.get("chat_id_env", "TELEGRAM_CHAT_ID"))
         self.timeout_seconds = int(self.config.get("timeout_seconds", 20))
+        self.ssl_context = default_ssl_context()
 
     @classmethod
     def disabled(cls) -> "TelegramNotifier":
@@ -46,7 +49,7 @@ class TelegramNotifier:
             method="POST",
         )
         try:
-            with urllib.request.urlopen(request, timeout=self.timeout_seconds) as response:
+            with urllib.request.urlopen(request, timeout=self.timeout_seconds, context=self.ssl_context) as response:
                 parsed = json.loads(response.read().decode("utf-8"))
         except urllib.error.HTTPError as exc:
             details = _read_telegram_error(exc)

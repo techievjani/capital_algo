@@ -125,6 +125,20 @@ class LiveNotificationManager:
             sent.append(event_id)
             self._trim_sent_events()
 
+    def notify_error(self, message: str) -> None:
+        if not self.enabled or not bool(self.config.get("send_error_notifications", True)):
+            return
+        now = datetime.now(timezone.utc)
+        state = self._notification_state()
+        last_message = state.get("last_error_message")
+        last_sent = _parse_dt(state.get("last_error_sent_at"))
+        cooldown = timedelta(minutes=float(self.config.get("error_notification_cooldown_minutes", 15)))
+        if last_message == message and last_sent is not None and now - last_sent < cooldown:
+            return
+        if self._safe_send(f"CapitalAlgo warning\n{message}"):
+            state["last_error_message"] = message
+            state["last_error_sent_at"] = now.isoformat()
+
     def maybe_send_daily_summary(
         self,
         account: AccountSnapshot | None,

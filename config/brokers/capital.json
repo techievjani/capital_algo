@@ -1,7 +1,6 @@
 {
   "environment": "demo",
   "base_currency": "USD",
-  "request_timeout_seconds": 20,
+  "request_timeout_seconds": 45,
   "max_retries": 3
 }
-

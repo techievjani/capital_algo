@@ -6,6 +6,8 @@
   "send_heartbeat": true,
   "heartbeat_minutes": 60,
   "send_trade_notifications": true,
+  "send_error_notifications": true,
+  "error_notification_cooldown_minutes": 15,
   "send_daily_summary": true,
   "daily_summary_time_utc": "23:59",
   "max_sent_event_ids": 500

@@ -379,7 +379,18 @@ class MultiStrategyLiveRunner:
         return LiveRunResult(iterations, evaluated, signals, orders_submitted, orders_rejected, self.state_path, self.log_path)
 
     def _process_group_symbol(self, group: dict[str, Any], symbol: str) -> dict[str, int]:
-        candles_1m = self._load_recent_candles(symbol)
+        try:
+            candles_1m = self._load_recent_candles(symbol)
+        except Exception as exc:
+            reason = _short_error(exc)
+            self.state.metadata["last_data_fetch_error"] = {
+                "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+                "symbol": symbol,
+                "error": reason,
+            }
+            self._log(group, symbol, None, "data_error", reason)
+            self.notifications.notify_error(f"Data fetch failed for {symbol}: {reason}")
+            return {"evaluated": 0, "signal": 0, "submitted": 0, "rejected": 1}
         minimum_1m = int(group.get("minimum_1m_candles", 80))
         if len(candles_1m) < minimum_1m:
             self._log(group, symbol, None, "skip", "insufficient_1m_candles")
@@ -855,8 +866,16 @@ def _fetch_recent_candles_chunked(provider, symbol: str, start: datetime, end: d
         chunk_end = min(cursor + timedelta(minutes=chunk_minutes), end)
         try:
             candles.extend(provider.get_historical_candles(symbol, "MINUTE", cursor, chunk_end))
-        except CapitalAPIError as exc:
+        except (CapitalAPIError, TimeoutError, OSError) as exc:
             if "prices.not-found" not in str(exc):
                 raise
         cursor = chunk_end + timedelta(minutes=1)
     return candles
+
+
+def _short_error(exc: Exception, max_length: int = 220) -> str:
+    message = str(exc) or exc.__class__.__name__
+    message = " ".join(message.split())
+    if len(message) <= max_length:
+        return message
+    return message[: max_length - 3] + "..."

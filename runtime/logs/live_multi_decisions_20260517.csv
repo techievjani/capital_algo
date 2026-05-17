@@ -815,3 +815,5 @@ timestamp_utc,group,strategy_kind,symbol,candle_time,event,reason
 2026-05-17T10:21:27.951564+00:00,btc_gold_dynamic_1_5,asset_hybrid,GOLD,,skip,insufficient_1m_candles
 2026-05-17T10:25:21.381957+00:00,btc_gold_dynamic_1_5,asset_hybrid,BTCUSD,2026-05-17T10:24:00+00:00,reject,NO_BREAKOUT
 2026-05-17T10:25:22.793154+00:00,btc_gold_dynamic_1_5,asset_hybrid,GOLD,,skip,insufficient_1m_candles
+2026-05-17T13:36:21.062389+00:00,btc_gold_dynamic_1_5,asset_hybrid,BTCUSD,2026-05-17T13:35:00+00:00,reject,NO_BREAKOUT
+2026-05-17T13:36:23.031383+00:00,btc_gold_dynamic_1_5,asset_hybrid,GOLD,,skip,insufficient_1m_candles

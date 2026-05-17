@@ -1,8 +1,8 @@
 {
   "account_risk_per_trade_pct": 0.5,
+  "max_position_notional_pct": 1000.0,
   "max_daily_loss_pct": 2.0,
   "max_open_positions": 2,
   "max_trades_per_day": 3,
   "allow_live_trading": false
 }
-

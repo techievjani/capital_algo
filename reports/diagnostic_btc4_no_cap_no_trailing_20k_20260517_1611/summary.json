@@ -1,0 +1,137 @@
+{
+  "config": {
+    "backtest": {
+      "account_currency": "USD",
+      "commission_per_trade": 0.0,
+      "default_symbol": "US100",
+      "default_timeframe": "MINUTE",
+      "report_directory": "reports",
+      "slippage_points": 0.0,
+      "spread_points": 0.0,
+      "starting_balance": 20000.0,
+      "trailing_stop": {
+        "activation_r": 0.5,
+        "distance_r": 0.5,
+        "enabled": false
+      }
+    },
+    "risk": {
+      "account_risk_per_trade_pct": 0.5,
+      "allow_live_trading": false,
+      "max_daily_loss_pct": 2.0,
+      "max_open_positions": 2,
+      "max_trades_per_day": 3
+    },
+    "strategy": {
+      "atr_period": 14,
+      "description": "Comparison: BTC+Gold dynamic 1.5% risk with max 4 trades per day for each symbol.",
+      "ema_period": 100,
+      "history_bars": 280,
+      "overbought_rsi": 70.0,
+      "oversold_rsi": 30.0,
+      "rsi_period": 14,
+      "strategy_id": "btc_gold_dynamic_1_5_max4_v1",
+      "symbols": {
+        "BTCUSD": {
+          "account_risk_per_trade_pct": 1.5,
+          "atr_period": 14,
+          "atr_stop_mult": 1.0,
+          "ema_period": 250,
+          "entry_hours_utc": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "lookback_bars": 24,
+          "max_hold_bars": 48,
+          "max_trades_per_day": 4,
+          "strategy_type": "breakout",
+          "target_r": 3.0
+        },
+        "GOLD": {
+          "account_risk_per_trade_pct": 1.5,
+          "atr_stop_mult": 1.5,
+          "entry_hours_utc": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "max_hold_bars": 48,
+          "max_trades_per_day": 4,
+          "strategy_type": "mean_reversion",
+          "target_r": 0.8,
+          "z_score": 2.5
+        }
+      },
+      "timeframe": "MINUTE_5"
+    }
+  },
+  "end_utc": "2026-05-17T16:11:00Z",
+  "generated_at": "2026-05-17T16:19:24.598068+00:00",
+  "rows": [
+    {
+      "average_loss": -625.3936168521275,
+      "average_win": 1821.9877113996781,
+      "best_trade": 3854.5832974580126,
+      "ending_balance": 89511.98990764326,
+      "evaluated_bars": 48152,
+      "generated_signals": 1339,
+      "net_profit": 69511.98990764326,
+      "profit_factor": 1.2272989438557045,
+      "rejected_evaluations": 46813,
+      "report_directory": "/Users/vishaljani/Documents/CapitalAlgo/reports/diagnostic_btc4_no_cap_no_trailing_20k_20260517_1611/individual_runs/BTCUSD_MINUTE_5_20251117T000000_20260517T160500",
+      "risk_rejected_signals": 644,
+      "starting_balance": 20000.0,
+      "status": "ok",
+      "strategy_type": "breakout",
+      "symbol": "BTCUSD",
+      "total_return_pct": 347.5599495382163,
+      "trade_count": 695,
+      "win_rate_pct": 29.640287769784173,
+      "worst_trade": -1304.427511830232
+    },
+    {
+      "average_loss": -388.89440296163013,
+      "average_win": 304.73926675507215,
+      "best_trade": 366.9281491610214,
+      "ending_balance": 29927.435308891672,
+      "evaluated_bars": 32910,
+      "generated_signals": 701,
+      "net_profit": 9927.435308891672,
+      "profit_factor": 1.1701821922744604,
+      "rejected_evaluations": 32209,
+      "report_directory": "/Users/vishaljani/Documents/CapitalAlgo/reports/diagnostic_btc4_no_cap_no_trailing_20k_20260517_1611/individual_runs/GOLD_MINUTE_5_20251117T000000_20260515T205000",
+      "risk_rejected_signals": 327,
+      "starting_balance": 20000.0,
+      "status": "ok",
+      "strategy_type": "mean_reversion",
+      "symbol": "GOLD",
+      "total_return_pct": 49.63717654445836,
+      "trade_count": 374,
+      "win_rate_pct": 59.893048128342244,
+      "worst_trade": -464.16410868866035
+    }
+  ],
+  "start_utc": "2025-11-17T00:00:00Z",
+  "symbols": [
+    "BTCUSD",
+    "GOLD"
+  ],
+  "totals": {
+    "generated_signals": 2040,
+    "net_profit": 79439.42521653493,
+    "risk_rejected_signals": 971,
+    "trade_count": 1069
+  }
+}

@@ -58,7 +58,7 @@ class SimulatedBroker:
 
     def submit_order_at_price(self, order: OrderRequest, price: float, timestamp: str) -> OrderResult:
         initial_risk = abs(price - order.stop_loss) if order.stop_loss is not None else 0.0
-        trailing_config = self.execution_config.get("trailing_stop", {})
+        trailing_config = _trailing_config_for_symbol(self.execution_config.get("trailing_stop", {}), order.instrument)
         self.open_trades.append(
             SimulatedTrade(
                 instrument=order.instrument,
@@ -146,3 +146,10 @@ class SimulatedBroker:
                 return
             candidate = trade.lowest_price + (trade.initial_risk * trade.trailing_distance_r)
             trade.stop_loss = min(trade.stop_loss, candidate)
+
+
+def _trailing_config_for_symbol(config: dict, symbol: str) -> dict:
+    merged = dict(config)
+    symbol_config = config.get("symbols", {}).get(symbol, {}) if isinstance(config.get("symbols"), dict) else {}
+    merged.update(symbol_config)
+    return merged

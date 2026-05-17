@@ -1,0 +1,138 @@
+{
+  "config": {
+    "backtest": {
+      "account_currency": "USD",
+      "commission_per_trade": 0.0,
+      "default_symbol": "US100",
+      "default_timeframe": "MINUTE",
+      "report_directory": "reports",
+      "slippage_points": 0.0,
+      "spread_points": 0.0,
+      "starting_balance": 5000.0,
+      "trailing_stop": {
+        "activation_r": 0.5,
+        "distance_r": 0.5,
+        "enabled": true
+      }
+    },
+    "risk": {
+      "account_risk_per_trade_pct": 0.5,
+      "allow_live_trading": false,
+      "max_daily_loss_pct": 2.0,
+      "max_open_positions": 2,
+      "max_position_notional_pct": 45.0,
+      "max_trades_per_day": 3
+    },
+    "strategy": {
+      "atr_period": 14,
+      "description": "Final BTC+Gold portfolio: dynamic 1.5% risk sizing, BTC breakout at max 3 trades/day, Gold ATR mean reversion at max 3 trades/day.",
+      "ema_period": 100,
+      "history_bars": 280,
+      "overbought_rsi": 70.0,
+      "oversold_rsi": 30.0,
+      "rsi_period": 14,
+      "strategy_id": "btc_gold_dynamic_1_5_btc3_gold3_v1",
+      "symbols": {
+        "BTCUSD": {
+          "account_risk_per_trade_pct": 1.5,
+          "atr_period": 14,
+          "atr_stop_mult": 1.0,
+          "ema_period": 250,
+          "entry_hours_utc": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "lookback_bars": 24,
+          "max_hold_bars": 48,
+          "max_trades_per_day": 3,
+          "strategy_type": "breakout",
+          "target_r": 3.0
+        },
+        "GOLD": {
+          "account_risk_per_trade_pct": 1.5,
+          "atr_stop_mult": 1.5,
+          "entry_hours_utc": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "max_hold_bars": 48,
+          "max_trades_per_day": 3,
+          "strategy_type": "mean_reversion",
+          "target_r": 0.8,
+          "z_score": 2.5
+        }
+      },
+      "timeframe": "MINUTE_5"
+    }
+  },
+  "end_utc": "2026-05-17T16:11:00Z",
+  "generated_at": "2026-05-17T16:16:22.197287+00:00",
+  "rows": [
+    {
+      "average_loss": -3.0775142576079517,
+      "average_win": 2.700262115903037,
+      "best_trade": 19.630013650307355,
+      "ending_balance": 5423.919571729173,
+      "evaluated_bars": 50696,
+      "generated_signals": 1787,
+      "net_profit": 423.9195717291732,
+      "profit_factor": 1.7695385189509736,
+      "rejected_evaluations": 48909,
+      "report_directory": "/Users/vishaljani/Documents/CapitalAlgo/reports/refreshed_btc_gold_dynamic_1_5_20260517_1611/individual_runs/BTCUSD_MINUTE_5_20251117T000000_20260517T160500",
+      "risk_rejected_signals": 1247,
+      "starting_balance": 5000.0,
+      "status": "ok",
+      "strategy_type": "breakout",
+      "symbol": "BTCUSD",
+      "total_return_pct": 8.478391434583465,
+      "trade_count": 540,
+      "win_rate_pct": 66.85185185185185,
+      "worst_trade": -13.329612912907939
+    },
+    {
+      "average_loss": -6.303660701819937,
+      "average_win": 1.7471216307620752,
+      "best_trade": 13.763113425686734,
+      "ending_balance": 4789.698061177511,
+      "evaluated_bars": 33869,
+      "generated_signals": 983,
+      "net_profit": -210.30193882248932,
+      "profit_factor": 0.652480471318025,
+      "rejected_evaluations": 32886,
+      "report_directory": "/Users/vishaljani/Documents/CapitalAlgo/reports/refreshed_btc_gold_dynamic_1_5_20260517_1611/individual_runs/GOLD_MINUTE_5_20251117T000000_20260515T205000",
+      "risk_rejected_signals": 661,
+      "starting_balance": 5000.0,
+      "status": "ok",
+      "strategy_type": "mean_reversion",
+      "symbol": "GOLD",
+      "total_return_pct": -4.206038776449787,
+      "trade_count": 322,
+      "win_rate_pct": 70.1863354037267,
+      "worst_trade": -20.306721253711586
+    }
+  ],
+  "start_utc": "2025-11-17T00:00:00Z",
+  "symbols": [
+    "BTCUSD",
+    "GOLD"
+  ],
+  "totals": {
+    "generated_signals": 2770,
+    "net_profit": 213.61763290668387,
+    "risk_rejected_signals": 1908,
+    "trade_count": 862
+  }
+}

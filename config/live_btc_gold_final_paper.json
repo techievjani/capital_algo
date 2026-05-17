@@ -27,8 +27,18 @@
     "currency": "USD"
   },
   "trailing_stop": {
-    "enabled": true,
+    "enabled": false,
     "activation_r": 0.5,
-    "distance_r": 0.5
+    "distance_r": 0.5,
+    "symbols": {
+      "BTCUSD": {
+        "enabled": true,
+        "activation_r": 0.5,
+        "distance_r": 0.5
+      },
+      "GOLD": {
+        "enabled": false
+      }
+    }
   }
 }

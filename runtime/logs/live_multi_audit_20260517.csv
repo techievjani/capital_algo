@@ -1,0 +1,11 @@
+timestamp_utc,runner,group,strategy_kind,symbol,candle_time,event,reason,signal_reason,action,entry_price,stop_loss,take_profit,account_balance,account_equity,account_available_funds,open_positions_count,open_symbols,position_sizing_mode,account_risk_per_trade_pct,risk_amount,stop_distance,initial_position_size,final_position_size,position_size_capped,max_position_notional_pct,max_position_notional,max_position_size,broker_order_id,broker_deal_reference,broker_deal_id,realized_pnl,realized_currency,close_transaction_reference,close_transaction_time_utc
+2026-05-17T16:28:04.361244+00:00,multi,btc_gold_dynamic_1_5,asset_hybrid,BTCUSD,2026-05-17T16:26:00+00:00,reject,NO_BREAKOUT,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-05-17T16:28:05.733167+00:00,multi,btc_gold_dynamic_1_5,asset_hybrid,GOLD,,skip,insufficient_1m_candles,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-05-17T16:28:36.572820+00:00,multi,btc_gold_dynamic_1_5,asset_hybrid,BTCUSD,2026-05-17T16:27:00+00:00,reject,NO_BREAKOUT,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-05-17T16:28:37.949569+00:00,multi,btc_gold_dynamic_1_5,asset_hybrid,GOLD,,skip,insufficient_1m_candles,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-05-17T16:29:05.267424+00:00,multi,btc_gold_dynamic_1_5,asset_hybrid,GOLD,,skip,insufficient_1m_candles,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-05-17T16:29:31.276267+00:00,multi,btc_gold_dynamic_1_5,asset_hybrid,BTCUSD,2026-05-17T16:28:00+00:00,reject,NO_BREAKOUT,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-05-17T16:29:32.672103+00:00,multi,btc_gold_dynamic_1_5,asset_hybrid,GOLD,,skip,insufficient_1m_candles,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-05-17T16:30:00.565747+00:00,multi,btc_gold_dynamic_1_5,asset_hybrid,GOLD,,skip,insufficient_1m_candles,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-05-17T16:30:26.491940+00:00,multi,btc_gold_dynamic_1_5,asset_hybrid,BTCUSD,2026-05-17T16:29:00+00:00,reject,NO_BREAKOUT,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-05-17T16:30:27.860108+00:00,multi,btc_gold_dynamic_1_5,asset_hybrid,GOLD,,skip,insufficient_1m_candles,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -15,7 +15,7 @@ from capital_algo.factory import create_capital_data_provider, load_project
 from capital_algo.instruments import load_instruments, broker_mapping
 from capital_algo.live.notifications import LiveNotificationManager
 from capital_algo.live.state import LiveState
-from capital_algo.models import Candle, OrderType, Signal, TradeAction
+from capital_algo.models import AccountSnapshot, Candle, OrderResult, OrderType, Signal, TradeAction
 from capital_algo.notifications import TelegramNotifier
 from capital_algo.risk.manager import RiskManager
 from capital_algo.strategies.asset_breakout import AssetBreakoutStrategy, BreakoutContext, BreakoutDirection
@@ -38,6 +38,46 @@ class LiveRunResult:
     log_path: Path
 
 
+_BROKER_LOG_COLUMNS = ["broker_order_id", "broker_deal_reference", "broker_deal_id"]
+_AUDIT_LOG_COLUMNS = [
+    "timestamp_utc",
+    "runner",
+    "group",
+    "strategy_kind",
+    "symbol",
+    "candle_time",
+    "event",
+    "reason",
+    "signal_reason",
+    "action",
+    "entry_price",
+    "stop_loss",
+    "take_profit",
+    "account_balance",
+    "account_equity",
+    "account_available_funds",
+    "open_positions_count",
+    "open_symbols",
+    "position_sizing_mode",
+    "account_risk_per_trade_pct",
+    "risk_amount",
+    "stop_distance",
+    "initial_position_size",
+    "final_position_size",
+    "position_size_capped",
+    "max_position_notional_pct",
+    "max_position_notional",
+    "max_position_size",
+    "broker_order_id",
+    "broker_deal_reference",
+    "broker_deal_id",
+    "realized_pnl",
+    "realized_currency",
+    "close_transaction_reference",
+    "close_transaction_time_utc",
+]
+
+
 class ForexPullbackLiveRunner:
     def __init__(self, root: Path, live_config_path: str = "config/live.json") -> None:
         self.root = root.resolve()
@@ -52,6 +92,7 @@ class ForexPullbackLiveRunner:
         self.log_directory = resolve_config_path(self.root, self.live_config.get("log_directory", "runtime/logs"))
         self.log_directory.mkdir(parents=True, exist_ok=True)
         self.log_path = self.log_directory / f"live_decisions_{datetime.now(timezone.utc):%Y%m%d}.csv"
+        self.audit_log_path = self.log_directory / f"live_audit_{datetime.now(timezone.utc):%Y%m%d}.csv"
         self.state = LiveState.load(self.state_path)
         self.strategy = ForexTrendPullbackScalper(self.strategy_config)
         self.risk_manager = RiskManager(self.project["risk"])
@@ -70,6 +111,7 @@ class ForexPullbackLiveRunner:
         orders_submitted = 0
         orders_rejected = 0
         self._ensure_log_header()
+        self._ensure_audit_header()
 
         while True:
             iterations += 1
@@ -172,6 +214,7 @@ class ForexPullbackLiveRunner:
                     "event": "filled",
                     "symbol": symbol,
                     "broker_order_id": result.broker_order_id,
+                    **_broker_event_fields(result),
                     "candle_time": latest_key,
                     "action": order.action.value,
                     "size": order.size,
@@ -182,7 +225,7 @@ class ForexPullbackLiveRunner:
             )
             self._reconcile_open_positions()
             self.state.save(self.state_path)
-            self._log(symbol, latest, "submitted", signal.reason)
+            self._log(symbol, latest, "submitted", signal.reason, _broker_log_fields(result))
             return {"evaluated": 1, "signal": 1, "submitted": 1, "rejected": 0}
 
         self.state.pending_orders.pop(pending_key, None)
@@ -193,10 +236,11 @@ class ForexPullbackLiveRunner:
                 "symbol": symbol,
                 "candle_time": latest_key,
                 "reason": result.rejection_reason or result.status.value,
+                **_broker_event_fields(result),
             }
         )
         self.state.save(self.state_path)
-        self._log(symbol, latest, "broker_reject", result.rejection_reason or result.status.value)
+        self._log(symbol, latest, "broker_reject", result.rejection_reason or result.status.value, _broker_log_fields(result))
         return {"evaluated": 1, "signal": 1, "submitted": 0, "rejected": 1}
 
     def _load_recent_candles(self, symbol: str) -> list[Candle]:
@@ -296,13 +340,40 @@ class ForexPullbackLiveRunner:
         self.state.daily_trade_counts[key] = self.risk_manager.trades_today
 
     def _ensure_log_header(self) -> None:
-        if self.log_path.exists():
-            return
-        with self.log_path.open("w", newline="", encoding="utf-8") as file:
-            writer = csv.writer(file)
-            writer.writerow(["timestamp_utc", "symbol", "candle_time", "event", "reason"])
+        _ensure_csv_header(self.log_path, ["timestamp_utc", "symbol", "candle_time", "event", "reason", *_BROKER_LOG_COLUMNS])
 
-    def _log(self, symbol: str, candle: Candle | None, event: str, reason: str) -> None:
+    def _ensure_audit_header(self) -> None:
+        _ensure_csv_header(self.audit_log_path, _AUDIT_LOG_COLUMNS)
+
+    def _audit(
+        self,
+        symbol: str,
+        candle: Candle | None,
+        event: str,
+        reason: str,
+        fields: dict[str, Any] | None = None,
+    ) -> None:
+        _append_audit_row(
+            self.audit_log_path,
+            {
+                "runner": "single",
+                "symbol": symbol,
+                "candle_time": candle.timestamp_utc.isoformat() if candle else "",
+                "event": event,
+                "reason": reason,
+                **(fields or {}),
+            },
+        )
+
+    def _log(
+        self,
+        symbol: str,
+        candle: Candle | None,
+        event: str,
+        reason: str,
+        broker_fields: dict[str, str] | None = None,
+    ) -> None:
+        broker_fields = broker_fields or {}
         with self.log_path.open("a", newline="", encoding="utf-8") as file:
             writer = csv.writer(file)
             writer.writerow([
@@ -311,6 +382,7 @@ class ForexPullbackLiveRunner:
                 candle.timestamp_utc.isoformat() if candle else "",
                 event,
                 reason,
+                *[broker_fields.get(column, "") for column in _BROKER_LOG_COLUMNS],
             ])
 
 
@@ -327,6 +399,7 @@ class MultiStrategyLiveRunner:
         self.log_directory = resolve_config_path(self.root, self.live_config.get("log_directory", "runtime/logs"))
         self.log_directory.mkdir(parents=True, exist_ok=True)
         self.log_path = self.log_directory / f"live_multi_decisions_{datetime.now(timezone.utc):%Y%m%d}.csv"
+        self.audit_log_path = self.log_directory / f"live_multi_audit_{datetime.now(timezone.utc):%Y%m%d}.csv"
         self.state = LiveState.load(self.state_path)
         self.risk_manager = RiskManager(self.project["risk"])
         self.cache = SQLiteMarketDataCache(resolve_config_path(self.root, self.project["data"]["historical_store"]["path"]))
@@ -347,6 +420,7 @@ class MultiStrategyLiveRunner:
         orders_submitted = 0
         orders_rejected = 0
         self._ensure_log_header()
+        self._ensure_audit_header()
 
         while True:
             iterations += 1
@@ -389,11 +463,13 @@ class MultiStrategyLiveRunner:
                 "error": reason,
             }
             self._log(group, symbol, None, "data_error", reason)
+            self._audit(group, symbol, None, "data_error", reason)
             self.notifications.notify_error(f"Data fetch failed for {symbol}: {reason}")
             return {"evaluated": 0, "signal": 0, "submitted": 0, "rejected": 1}
         minimum_1m = int(group.get("minimum_1m_candles", 80))
         if len(candles_1m) < minimum_1m:
             self._log(group, symbol, None, "skip", "insufficient_1m_candles")
+            self._audit(group, symbol, None, "skip", "insufficient_1m_candles")
             return {"evaluated": 0, "signal": 0, "submitted": 0, "rejected": 0}
 
         latest = candles_1m[-1]
@@ -407,22 +483,43 @@ class MultiStrategyLiveRunner:
         self.state.last_processed_candle[state_key] = latest_key
         if evaluation is None:
             self._log(group, symbol, latest, "skip", "insufficient_derived_candles")
+            self._audit(group, symbol, latest, "skip", "insufficient_derived_candles")
             return {"evaluated": 0, "signal": 0, "submitted": 0, "rejected": 0}
         if not evaluation.should_trade:
             reason = evaluation.rejection_reason.value if evaluation.rejection_reason else "no_signal"
             self._log(group, symbol, latest, "reject", reason)
+            self._audit(group, symbol, latest, "reject", reason, _evaluation_audit_fields(evaluation))
             return {"evaluated": 1, "signal": 0, "submitted": 0, "rejected": 0}
 
         if self.state.last_signal_candle.get(state_key) == latest_key:
             self._log(group, symbol, latest, "reject", "duplicate_signal")
+            self._audit(group, symbol, latest, "reject", "duplicate_signal", _evaluation_audit_fields(evaluation))
             return {"evaluated": 1, "signal": 0, "submitted": 0, "rejected": 0}
 
         signal = _multi_evaluation_to_signal(group, evaluation)
-        if any(position.instrument == symbol for position in self.broker.get_open_positions()):
+        open_positions = self.broker.get_open_positions()
+        open_fields = _positions_audit_fields(open_positions)
+        if any(position.instrument == symbol for position in open_positions):
             self._log(group, symbol, latest, "risk_reject", "symbol_position_already_open")
+            self._audit(
+                group,
+                symbol,
+                latest,
+                "risk_reject",
+                "symbol_position_already_open",
+                {**_evaluation_audit_fields(evaluation), **open_fields},
+            )
             return {"evaluated": 1, "signal": 1, "submitted": 0, "rejected": 1}
-        if len(self.broker.get_open_positions()) >= int(self.project["risk"].get("max_open_positions", 1)):
+        if len(open_positions) >= int(self.project["risk"].get("max_open_positions", 1)):
             self._log(group, symbol, latest, "risk_reject", "max_open_positions_reached")
+            self._audit(
+                group,
+                symbol,
+                latest,
+                "risk_reject",
+                "max_open_positions_reached",
+                {**_evaluation_audit_fields(evaluation), **open_fields},
+            )
             return {"evaluated": 1, "signal": 1, "submitted": 0, "rejected": 1}
 
         entry_price = evaluation.entry_price or latest.close
@@ -430,20 +527,36 @@ class MultiStrategyLiveRunner:
         symbol_limit = _symbol_max_trades_per_day(group, symbol)
         if symbol_limit is not None and self.state.daily_trade_counts.get(self.state.trade_count_key(symbol, trading_day), 0) >= symbol_limit:
             self._log(group, symbol, latest, "risk_reject", "symbol_max_trades_per_day_reached")
+            self._audit(
+                group,
+                symbol,
+                latest,
+                "risk_reject",
+                "symbol_max_trades_per_day_reached",
+                {**_evaluation_audit_fields(evaluation), **open_fields},
+            )
             return {"evaluated": 1, "signal": 1, "submitted": 0, "rejected": 1}
 
         self._restore_daily_risk_count(trading_day)
         risk_manager = RiskManager(_risk_config_for_symbol(self.project["risk"], group, symbol))
         risk_manager.current_day = self.risk_manager.current_day
         risk_manager.trades_today = self.risk_manager.trades_today
+        account = self.broker.get_account_snapshot()
         decision = risk_manager.evaluate(
             signal,
-            self.broker.get_account_snapshot(),
+            account,
             entry_price,
             trading_day=trading_day,
         )
+        audit_fields = {
+            **_evaluation_audit_fields(evaluation),
+            **_account_audit_fields(account),
+            **open_fields,
+            **(decision.metadata or {}),
+        }
         if not decision.approved or decision.order is None:
             self._log(group, symbol, latest, "risk_reject", decision.reason)
+            self._audit(group, symbol, latest, "risk_reject", decision.reason, audit_fields)
             return {"evaluated": 1, "signal": 1, "submitted": 0, "rejected": 1}
 
         order = replace(decision.order, metadata={**decision.order.metadata, "entry_price": entry_price})
@@ -474,6 +587,7 @@ class MultiStrategyLiveRunner:
                     "strategy_kind": group["strategy_kind"],
                     "symbol": symbol,
                     "broker_order_id": result.broker_order_id,
+                    **_broker_event_fields(result),
                     "candle_time": latest_key,
                     "action": order.action.value,
                     "size": order.size,
@@ -487,7 +601,15 @@ class MultiStrategyLiveRunner:
                 self.notifications.notify_trade_closed(closed_event)
             self.notifications.notify_trade_open(filled_event, self._safe_account_snapshot())
             self.state.save(self.state_path)
-            self._log(group, symbol, latest, "submitted", signal.reason)
+            self._log(group, symbol, latest, "submitted", signal.reason, _broker_log_fields(result))
+            self._audit(
+                group,
+                symbol,
+                latest,
+                "submitted",
+                signal.reason,
+                {**audit_fields, **_broker_log_fields(result), "final_position_size": order.size},
+            )
             return {"evaluated": 1, "signal": 1, "submitted": 1, "rejected": 0}
 
         self.state.pending_orders.pop(pending_key, None)
@@ -500,10 +622,19 @@ class MultiStrategyLiveRunner:
                 "symbol": symbol,
                 "candle_time": latest_key,
                 "reason": result.rejection_reason or result.status.value,
+                **_broker_event_fields(result),
             }
         )
         self.state.save(self.state_path)
-        self._log(group, symbol, latest, "broker_reject", result.rejection_reason or result.status.value)
+        self._log(group, symbol, latest, "broker_reject", result.rejection_reason or result.status.value, _broker_log_fields(result))
+        self._audit(
+            group,
+            symbol,
+            latest,
+            "broker_reject",
+            result.rejection_reason or result.status.value,
+            {**audit_fields, **_broker_log_fields(result), "final_position_size": order.size},
+        )
         return {"evaluated": 1, "signal": 1, "submitted": 0, "rejected": 1}
 
     def _evaluate(self, group: dict[str, Any], symbol: str, candles_1m: list[Candle], latest: Candle):
@@ -657,6 +788,23 @@ class MultiStrategyLiveRunner:
             event["event"] = "position_closed"
             event["position_key"] = key
             event["timestamp_utc"] = datetime.now(timezone.utc).isoformat()
+            event.update(_realized_close_fields(self.broker, event))
+            _append_audit_row(
+                self.audit_log_path,
+                {
+                    "runner": "multi",
+                    "symbol": event.get("symbol"),
+                    "event": "position_closed",
+                    "reason": "missing_from_broker_open_positions",
+                    "entry_price": event.get("average_price"),
+                    "realized_pnl": event.get("realized_pnl"),
+                    "realized_currency": event.get("realized_currency"),
+                    "close_transaction_reference": event.get("close_transaction_reference"),
+                    "close_transaction_time_utc": event.get("close_transaction_time_utc"),
+                    "broker_order_id": event.get("broker_order_id"),
+                    "broker_deal_id": event.get("broker_position_id"),
+                },
+            )
             closed.append(event)
         return closed
 
@@ -674,14 +822,48 @@ class MultiStrategyLiveRunner:
             self.state.daily_trade_counts[symbol_key] = int(self.state.daily_trade_counts.get(symbol_key, 0)) + 1
 
     def _ensure_log_header(self) -> None:
-        if self.log_path.exists():
-            return
-        with self.log_path.open("w", newline="", encoding="utf-8") as file:
-            writer = csv.writer(file)
-            writer.writerow(["timestamp_utc", "group", "strategy_kind", "symbol", "candle_time", "event", "reason"])
+        _ensure_csv_header(
+            self.log_path,
+            ["timestamp_utc", "group", "strategy_kind", "symbol", "candle_time", "event", "reason", *_BROKER_LOG_COLUMNS],
+        )
 
-    def _log(self, group: dict[str, Any], symbol: str, candle: Candle | None, event: str, reason: str) -> None:
+    def _ensure_audit_header(self) -> None:
+        _ensure_csv_header(self.audit_log_path, _AUDIT_LOG_COLUMNS)
+
+    def _audit(
+        self,
+        group: dict[str, Any],
+        symbol: str,
+        candle: Candle | None,
+        event: str,
+        reason: str,
+        fields: dict[str, Any] | None = None,
+    ) -> None:
+        _append_audit_row(
+            self.audit_log_path,
+            {
+                "runner": "multi",
+                "group": group["name"],
+                "strategy_kind": group["strategy_kind"],
+                "symbol": symbol,
+                "candle_time": candle.timestamp_utc.isoformat() if candle else "",
+                "event": event,
+                "reason": reason,
+                **(fields or {}),
+            },
+        )
+
+    def _log(
+        self,
+        group: dict[str, Any],
+        symbol: str,
+        candle: Candle | None,
+        event: str,
+        reason: str,
+        broker_fields: dict[str, str] | None = None,
+    ) -> None:
         candle_time = candle.timestamp_utc.isoformat() if candle else ""
+        broker_fields = broker_fields or {}
         print(
             f"[{datetime.now(timezone.utc).isoformat()}] "
             f"{group['name']} {symbol} {event}: {reason}"
@@ -698,6 +880,7 @@ class MultiStrategyLiveRunner:
                 candle_time,
                 event,
                 reason,
+                *[broker_fields.get(column, "") for column in _BROKER_LOG_COLUMNS],
             ])
 
 
@@ -713,6 +896,122 @@ def _evaluation_to_signal(evaluation) -> Signal:
         take_profit=evaluation.target_price,
         metadata=evaluation.metadata,
     )
+
+
+def _broker_event_fields(result: OrderResult) -> dict[str, str]:
+    fields = _broker_log_fields(result)
+    return {
+        "broker_deal_reference": fields["broker_deal_reference"],
+        "broker_deal_id": fields["broker_deal_id"],
+    }
+
+
+def _broker_log_fields(result: OrderResult) -> dict[str, str]:
+    metadata = result.metadata or {}
+    return {
+        "broker_order_id": str(result.broker_order_id or ""),
+        "broker_deal_reference": str(metadata.get("deal_reference") or ""),
+        "broker_deal_id": str(metadata.get("deal_id") or ""),
+    }
+
+
+def _realized_close_fields(broker: Any, event: dict[str, Any]) -> dict[str, Any]:
+    deal_id = str(event.get("broker_position_id") or "")
+    lookup = getattr(broker, "get_recent_close_transaction", None)
+    if not deal_id or not callable(lookup):
+        return {}
+    transaction = lookup(deal_id)
+    if not transaction:
+        return {}
+    return {
+        "realized_pnl": _coerce_float(transaction.get("size")),
+        "realized_currency": transaction.get("currency"),
+        "close_transaction_reference": transaction.get("reference"),
+        "close_transaction_time_utc": transaction.get("dateUtc") or transaction.get("dateUTC"),
+        "close_transaction": transaction,
+    }
+
+
+def _coerce_float(value: Any) -> float | None:
+    if value is None:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _ensure_csv_header(path: Path, expected_header: list[str]) -> None:
+    if not path.exists():
+        with path.open("w", newline="", encoding="utf-8") as file:
+            csv.writer(file).writerow(expected_header)
+        return
+
+    with path.open(newline="", encoding="utf-8") as file:
+        rows = list(csv.reader(file))
+    if not rows:
+        with path.open("w", newline="", encoding="utf-8") as file:
+            csv.writer(file).writerow(expected_header)
+        return
+
+    current_header = rows[0]
+    missing = [column for column in expected_header if column not in current_header]
+    if not missing:
+        return
+
+    updated_rows = [[*current_header, *missing]]
+    for row in rows[1:]:
+        updated_rows.append([*row, *([""] * len(missing))])
+
+    with path.open("w", newline="", encoding="utf-8") as file:
+        csv.writer(file).writerows(updated_rows)
+
+
+def _append_audit_row(path: Path, fields: dict[str, Any]) -> None:
+    _ensure_csv_header(path, _AUDIT_LOG_COLUMNS)
+    row = {
+        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
+        **fields,
+    }
+    with path.open("a", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(file, fieldnames=_AUDIT_LOG_COLUMNS, extrasaction="ignore")
+        writer.writerow({column: _audit_cell(row.get(column)) for column in _AUDIT_LOG_COLUMNS})
+
+
+def _audit_cell(value: Any) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, (list, tuple, set)):
+        return "|".join(str(item) for item in value)
+    return str(value)
+
+
+def _evaluation_audit_fields(evaluation: Any) -> dict[str, Any]:
+    direction = getattr(evaluation, "direction", None)
+    return {
+        "signal_reason": getattr(evaluation, "reason", None),
+        "action": getattr(direction, "value", direction),
+        "entry_price": getattr(evaluation, "entry_price", None),
+        "stop_loss": getattr(evaluation, "stop_loss", None),
+        "take_profit": getattr(evaluation, "target_price", None),
+    }
+
+
+def _account_audit_fields(account: AccountSnapshot | None) -> dict[str, Any]:
+    if account is None:
+        return {}
+    return {
+        "account_balance": account.balance,
+        "account_equity": account.equity,
+        "account_available_funds": account.available_funds,
+    }
+
+
+def _positions_audit_fields(positions: list[Any]) -> dict[str, Any]:
+    return {
+        "open_positions_count": len(positions),
+        "open_symbols": [position.instrument for position in positions],
+    }
 
 
 def _multi_evaluation_to_signal(group: dict[str, Any], evaluation) -> Signal:
@@ -785,6 +1084,8 @@ def _risk_config_for_symbol(base_risk_config: dict[str, Any], group: dict[str, A
     symbol_config = symbols_config.get(symbol, {})
     if "account_risk_per_trade_pct" in symbol_config:
         config["account_risk_per_trade_pct"] = symbol_config["account_risk_per_trade_pct"]
+    if "max_position_notional_pct" in symbol_config:
+        config["max_position_notional_pct"] = symbol_config["max_position_notional_pct"]
     if "max_trades_per_day" in symbol_config:
         config["max_trades_per_day"] = symbol_config["max_trades_per_day"]
     if "fixed_position_size" in symbol_config:

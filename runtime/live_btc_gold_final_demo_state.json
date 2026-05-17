@@ -1,14 +1,14 @@
 {
   "daily_trade_counts": {},
   "last_processed_candle": {
-    "btc_gold_dynamic_1_5:BTCUSD": "2026-05-17T10:24:00+00:00"
+    "btc_gold_dynamic_1_5:BTCUSD": "2026-05-17T16:29:00+00:00"
   },
   "last_signal_candle": {},
   "metadata": {
-    "last_reconciled_at": "2026-05-17T10:25:18.342492+00:00",
+    "last_reconciled_at": "2026-05-17T16:30:21.990086+00:00",
     "notifications": {
-      "last_heartbeat_at": "2026-05-17T10:18:28.903439+00:00",
-      "last_startup_at": "2026-05-17T10:25:17.806736+00:00",
+      "last_heartbeat_at": "2026-05-17T16:28:06.685265+00:00",
+      "last_startup_at": "2026-05-17T16:27:58.740656+00:00",
       "startup_sent": true
     }
   },

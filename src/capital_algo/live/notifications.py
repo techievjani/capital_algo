@@ -112,15 +112,25 @@ class LiveNotificationManager:
         sent = self._sent_event_ids()
         if event_id in sent:
             return
+        realized_pnl = event.get("realized_pnl")
+        realized_currency = event.get("realized_currency") or ""
         lines = [
             "Position closed or no longer open",
             f"Symbol: {event.get('symbol')}",
             f"Size: {_fmt(event.get('size'))}",
             f"Average: {_fmt(event.get('average_price'))}",
-            f"Last unrealized P&L: {_fmt(event.get('unrealized_pnl'))}",
             f"Broker position: {event.get('broker_position_id') or 'n/a'}",
             f"Detected UTC: {event.get('timestamp_utc')}",
         ]
+        if realized_pnl is not None:
+            lines.insert(4, f"Realized P&L: {_fmt(realized_pnl)} {realized_currency}".rstrip())
+            if event.get("close_transaction_time_utc"):
+                lines.append(f"Broker close UTC: {event.get('close_transaction_time_utc')}")
+            if event.get("close_transaction_reference"):
+                lines.append(f"Close reference: {event.get('close_transaction_reference')}")
+        else:
+            lines.insert(4, "Realized P&L: unavailable from broker history")
+            lines.insert(5, f"Last seen unrealized P&L: {_fmt(event.get('unrealized_pnl'))}")
         if self._safe_send("\n".join(lines)):
             sent.append(event_id)
             self._trim_sent_events()

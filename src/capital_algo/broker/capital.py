@@ -7,7 +7,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 from capital_algo.http import default_ssl_context
@@ -149,6 +149,18 @@ class CapitalClient:
     def get_positions(self) -> dict[str, Any]:
         self._ensure_session()
         response, _ = self._request("GET", "/positions")
+        return response
+
+    def get_transactions(self, start_utc: datetime, end_utc: datetime, page_size: int = 500) -> dict[str, Any]:
+        self._ensure_session()
+        params = urllib.parse.urlencode(
+            {
+                "from": _capital_time(start_utc),
+                "to": _capital_time(end_utc),
+                "pageSize": page_size,
+            }
+        )
+        response, _ = self._request("GET", f"/history/transactions?{params}")
         return response
 
     def create_position(
@@ -332,7 +344,8 @@ class CapitalBroker:
             return OrderResult(OrderStatus.REJECTED, rejection_reason="Capital.com order placement is disabled by config")
         epic = self.epic_by_symbol.get(order.instrument, order.instrument)
         direction = "BUY" if order.action == TradeAction.BUY else "SELL"
-        trailing_enabled = bool(self.trailing_stop_config.get("enabled", False))
+        trailing_config = _trailing_config_for_symbol(self.trailing_stop_config, order.instrument)
+        trailing_enabled = bool(trailing_config.get("enabled", False))
         entry_price = _optional_float(order.metadata.get("entry_price"))
         stop_distance = abs(entry_price - order.stop_loss) if trailing_enabled and entry_price is not None and order.stop_loss is not None else None
         try:
@@ -353,7 +366,14 @@ class CapitalBroker:
         return OrderResult(
             status=OrderStatus.FILLED if deal_id or deal_reference else OrderStatus.ACCEPTED,
             broker_order_id=deal_id or str(deal_reference or ""),
-            metadata={"response": response, "confirmation": confirmation},
+            metadata={
+                "broker": "capital.com",
+                "deal_reference": str(deal_reference or ""),
+                "deal_id": deal_id or "",
+                "trailing_stop": trailing_enabled,
+                "response": response,
+                "confirmation": confirmation,
+            },
         )
 
     def close_position(self, position_id: str) -> OrderResult:
@@ -368,7 +388,14 @@ class CapitalBroker:
         return OrderResult(
             status=OrderStatus.FILLED if deal_reference else OrderStatus.ACCEPTED,
             broker_order_id=str(deal_reference or position_id),
-            metadata={"response": response, "confirmation": confirmation},
+            metadata={
+                "broker": "capital.com",
+                "deal_reference": str(deal_reference or ""),
+                "deal_id": _confirmed_deal_id(confirmation) or "",
+                "closed_position_id": position_id,
+                "response": response,
+                "confirmation": confirmation,
+            },
         )
 
     def update_position(
@@ -388,8 +415,30 @@ class CapitalBroker:
         return OrderResult(
             status=OrderStatus.ACCEPTED,
             broker_order_id=str(deal_reference or position_id),
-            metadata={"response": response, "confirmation": confirmation},
+            metadata={
+                "broker": "capital.com",
+                "deal_reference": str(deal_reference or ""),
+                "deal_id": _confirmed_deal_id(confirmation) or "",
+                "updated_position_id": position_id,
+                "response": response,
+                "confirmation": confirmation,
+            },
         )
+
+    def get_recent_close_transaction(self, deal_id: str, lookback_days: int = 3) -> dict[str, Any] | None:
+        now = datetime.now(timezone.utc)
+        for day_offset in range(lookback_days):
+            end = now - timedelta(days=day_offset)
+            start = end.replace(hour=0, minute=0, second=0, microsecond=0)
+            try:
+                response = self.client.get_transactions(start, end)
+            except CapitalAPIError:
+                continue
+            transactions = response.get("transactions", [])
+            for transaction in transactions:
+                if str(transaction.get("dealId") or "") == deal_id and transaction.get("transactionType") == "TRADE":
+                    return dict(transaction)
+        return None
 
 
 def _capital_time(value: datetime) -> str:
@@ -445,3 +494,11 @@ def _confirmed_deal_id(confirmation: dict[str, Any]) -> str | None:
     if deal_id:
         return str(deal_id)
     return None
+
+
+def _trailing_config_for_symbol(config: dict[str, Any], symbol: str) -> dict[str, Any]:
+    merged = dict(config)
+    symbols = config.get("symbols", {})
+    symbol_config = symbols.get(symbol, {}) if isinstance(symbols, dict) else {}
+    merged.update(symbol_config)
+    return merged

@@ -1,11 +1,18 @@
 from __future__ import annotations
 
+import csv
 import tempfile
 import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from capital_algo.live.runner import _aggregate, _latest_closed_minute, _risk_config_for_symbol
+from capital_algo.live.runner import (
+    _aggregate,
+    _ensure_csv_header,
+    _latest_closed_minute,
+    _realized_close_fields,
+    _risk_config_for_symbol,
+)
 from capital_algo.live.state import LiveState
 from capital_algo.models import Candle
 
@@ -57,6 +64,45 @@ class LiveRunnerTests(unittest.TestCase):
         btc_config = _risk_config_for_symbol(risk, group, "BTCUSD")
         self.assertEqual(0.5, btc_config["fixed_position_size"])
         self.assertEqual(2, btc_config["max_trades_per_day"])
+
+    def test_risk_config_for_symbol_applies_notional_cap(self) -> None:
+        risk = {"account_risk_per_trade_pct": 0.5, "max_trades_per_day": 3, "max_position_notional_pct": 45.0}
+        group = {"strategy_config": {"symbols": {"BTCUSD": {"max_position_notional_pct": 35.0}}}}
+        btc_config = _risk_config_for_symbol(risk, group, "BTCUSD")
+        self.assertEqual(35.0, btc_config["max_position_notional_pct"])
+
+    def test_ensure_csv_header_adds_new_columns_to_existing_log(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "live.csv"
+            with path.open("w", newline="", encoding="utf-8") as file:
+                writer = csv.writer(file)
+                writer.writerow(["timestamp_utc", "symbol", "event"])
+                writer.writerow(["2026-05-17T10:00:00+00:00", "BTCUSD", "submitted"])
+
+            _ensure_csv_header(path, ["timestamp_utc", "symbol", "event", "broker_order_id", "broker_deal_reference"])
+
+            with path.open(newline="", encoding="utf-8") as file:
+                rows = list(csv.reader(file))
+            self.assertEqual(["timestamp_utc", "symbol", "event", "broker_order_id", "broker_deal_reference"], rows[0])
+            self.assertEqual(["2026-05-17T10:00:00+00:00", "BTCUSD", "submitted", "", ""], rows[1])
+
+    def test_realized_close_fields_uses_broker_transaction(self) -> None:
+        class Broker:
+            def get_recent_close_transaction(self, deal_id):
+                self.deal_id = deal_id
+                return {
+                    "size": "-337.35",
+                    "currency": "USDd",
+                    "reference": "128014165968950",
+                    "dateUtc": "2026-05-17T14:23:52.276",
+                }
+
+        broker = Broker()
+        fields = _realized_close_fields(broker, {"broker_position_id": "D1"})
+        self.assertEqual("D1", broker.deal_id)
+        self.assertEqual(-337.35, fields["realized_pnl"])
+        self.assertEqual("USDd", fields["realized_currency"])
+        self.assertEqual("128014165968950", fields["close_transaction_reference"])
 
 
 if __name__ == "__main__":

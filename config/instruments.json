@@ -1,0 +1,25 @@
+{
+  "instruments": [
+    {
+      "symbol": "US100",
+      "enabled": true,
+      "session": "new_york_cash",
+      "brokers": {
+        "capital": {"epic": "US100"},
+        "interactive_brokers": {"symbol": "NQ", "sec_type": "FUT", "exchange": "CME", "currency": "USD"}
+      }
+    },
+    {"symbol": "EURUSD", "enabled": true, "session": "london_fx", "brokers": {"capital": {"epic": "EURUSD"}}},
+    {"symbol": "GBPUSD", "enabled": true, "session": "london_fx", "brokers": {"capital": {"epic": "GBPUSD"}}},
+    {"symbol": "USDJPY", "enabled": true, "session": "tokyo_fx", "brokers": {"capital": {"epic": "USDJPY"}}},
+    {"symbol": "USDCHF", "enabled": true, "session": "london_fx", "brokers": {"capital": {"epic": "USDCHF"}}},
+    {"symbol": "AUDUSD", "enabled": true, "session": "tokyo_fx", "brokers": {"capital": {"epic": "AUDUSD"}}},
+    {"symbol": "USDCAD", "enabled": true, "session": "new_york_fx", "brokers": {"capital": {"epic": "USDCAD"}}},
+    {"symbol": "NZDUSD", "enabled": true, "session": "tokyo_fx", "brokers": {"capital": {"epic": "NZDUSD"}}},
+    {"symbol": "EURJPY", "enabled": true, "session": "tokyo_fx", "brokers": {"capital": {"epic": "EURJPY"}}},
+    {"symbol": "GBPJPY", "enabled": true, "session": "tokyo_fx", "brokers": {"capital": {"epic": "GBPJPY"}}},
+    {"symbol": "EURGBP", "enabled": true, "session": "london_fx", "brokers": {"capital": {"epic": "EURGBP"}}},
+    {"symbol": "BTCUSD", "enabled": true, "session": "crypto_24h", "brokers": {"capital": {"epic": "BTCUSD"}}},
+    {"symbol": "GOLD", "enabled": true, "session": "metals", "brokers": {"capital": {"epic": "GOLD"}}}
+  ]
+}

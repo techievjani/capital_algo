@@ -1,0 +1,677 @@
+{
+  "config": {
+    "backtest": {
+      "account_currency": "USD",
+      "commission_per_trade": 0.0,
+      "default_symbol": "US100",
+      "default_timeframe": "MINUTE",
+      "report_directory": "reports",
+      "slippage_points": 0.0,
+      "spread_points": 0.0,
+      "starting_balance": 10000.0,
+      "trailing_stop": {
+        "activation_r": 0.5,
+        "distance_r": 0.5,
+        "enabled": false
+      }
+    },
+    "data": {
+      "derived_timeframes": [
+        "MINUTE_5"
+      ],
+      "end_utc": "2026-05-17T00:00:00Z",
+      "provider": "capital",
+      "source": "/Users/vishaljani/Documents/CapitalAlgo/data/market.sqlite",
+      "start_utc": "2026-04-11T00:00:00Z",
+      "timeframe": "MINUTE"
+    },
+    "risk": {
+      "account_risk_per_trade_pct": 0.5,
+      "allow_live_trading": false,
+      "max_daily_loss_pct": 2.0,
+      "max_open_positions": 2,
+      "max_trades_per_day": 3
+    },
+    "strategy": {
+      "atr_period": 14,
+      "description": "Hybrid asset strategy: BTCUSD uses 5-minute rolling-range breakout; GOLD uses 5-minute ATR stretch mean reversion.",
+      "ema_period": 100,
+      "history_bars": 280,
+      "overbought_rsi": 70.0,
+      "oversold_rsi": 30.0,
+      "rsi_period": 14,
+      "strategy_id": "btc_breakout_gold_mean_reversion_v1",
+      "symbols": {
+        "BTCUSD": {
+          "atr_period": 14,
+          "atr_stop_mult": 1.0,
+          "ema_period": 250,
+          "entry_hours_utc": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "lookback_bars": 24,
+          "max_hold_bars": 48,
+          "max_trades_per_day": 2,
+          "strategy_type": "breakout",
+          "target_r": 3.0
+        },
+        "GOLD": {
+          "atr_stop_mult": 1.5,
+          "entry_hours_utc": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "max_hold_bars": 48,
+          "strategy_type": "mean_reversion",
+          "target_r": 0.8,
+          "z_score": 2.5
+        }
+      },
+      "timeframe": "MINUTE_5"
+    }
+  },
+  "generated_at": "2026-05-17T08:39:27.367634+00:00",
+  "metrics": {
+    "average_loss": -50.24778148158591,
+    "average_win": 40.016869344928004,
+    "best_trade": 40.96227248725699,
+    "ending_balance": 10034.576194134708,
+    "evaluated_bars": 6421,
+    "generated_signals": 150,
+    "net_profit": 34.5761941347082,
+    "profit_factor": 1.0286714102221752,
+    "rejected_evaluations": 6271,
+    "risk_rejected_signals": 95,
+    "starting_balance": 10000.0,
+    "total_return_pct": 0.34576194134708205,
+    "trade_count": 55,
+    "win_rate_pct": 56.36363636363636,
+    "worst_trade": -51.40765197150751
+  },
+  "rejected_signals": [
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-14T17:35:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-14T17:40:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-14T17:45:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-14T17:50:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-14T18:00:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-14T18:05:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-14T18:10:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-14T19:55:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-16T17:35:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-17T13:15:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-17T13:20:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-17T13:25:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-17T13:35:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-17T13:50:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T14:50:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T14:55:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T15:00:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T15:05:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T16:25:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T16:30:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T16:35:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T16:40:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T16:45:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T16:50:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T16:55:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T17:00:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T17:05:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T17:10:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T17:15:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T17:20:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T17:25:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T17:30:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-21T19:40:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-23T19:10:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-23T19:35:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-23T19:40:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-29T13:40:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-29T13:45:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-29T13:50:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-29T13:55:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-29T14:05:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-29T18:10:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-04-29T18:30:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-01T14:10:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-01T14:15:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-01T14:20:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-01T14:25:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-01T14:30:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-01T14:35:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-01T16:10:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-01T16:15:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-04T16:05:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-04T16:10:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-04T18:25:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-04T18:30:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-04T18:40:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-04T18:50:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-06T19:30:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-06T19:35:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-06T19:50:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-07T16:15:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-07T16:20:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-07T16:35:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-07T16:40:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-07T16:45:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-11T13:40:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-11T13:45:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-11T13:50:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-11T13:55:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-11T14:00:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-11T17:50:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-11T17:55:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-11T18:00:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-11T18:05:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-11T18:25:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-11T18:35:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T15:25:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T18:40:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T18:50:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:00:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:05:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:10:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:15:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:20:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:25:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:30:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:35:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:40:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:45:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:50:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-12T19:55:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-14T19:35:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-14T19:40:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-14T19:45:00+00:00"
+    },
+    {
+      "instrument": "GOLD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_ATR_MEAN_REVERSION",
+      "timestamp": "2026-05-14T19:55:00+00:00"
+    }
+  ]
+}

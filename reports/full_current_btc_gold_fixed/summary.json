@@ -1,0 +1,136 @@
+{
+  "config": {
+    "backtest": {
+      "account_currency": "USD",
+      "commission_per_trade": 0.0,
+      "default_symbol": "US100",
+      "default_timeframe": "MINUTE",
+      "report_directory": "reports",
+      "slippage_points": 0.0,
+      "spread_points": 0.0,
+      "starting_balance": 10000.0,
+      "trailing_stop": {
+        "activation_r": 0.5,
+        "distance_r": 0.5,
+        "enabled": false
+      }
+    },
+    "risk": {
+      "account_risk_per_trade_pct": 0.5,
+      "allow_live_trading": false,
+      "max_daily_loss_pct": 2.0,
+      "max_open_positions": 2,
+      "max_trades_per_day": 3
+    },
+    "strategy": {
+      "atr_period": 14,
+      "description": "Hybrid asset strategy: BTCUSD uses 5-minute rolling-range breakout; GOLD uses 5-minute ATR stretch mean reversion.",
+      "ema_period": 100,
+      "history_bars": 280,
+      "overbought_rsi": 70.0,
+      "oversold_rsi": 30.0,
+      "rsi_period": 14,
+      "strategy_id": "btc_breakout_gold_mean_reversion_v1",
+      "symbols": {
+        "BTCUSD": {
+          "atr_period": 14,
+          "atr_stop_mult": 1.0,
+          "ema_period": 250,
+          "entry_hours_utc": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "fixed_position_size": 0.5,
+          "lookback_bars": 24,
+          "max_hold_bars": 48,
+          "max_trades_per_day": 2,
+          "strategy_type": "breakout",
+          "target_r": 3.0
+        },
+        "GOLD": {
+          "atr_stop_mult": 1.5,
+          "entry_hours_utc": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "fixed_position_size": 5.0,
+          "max_hold_bars": 48,
+          "strategy_type": "mean_reversion",
+          "target_r": 0.8,
+          "z_score": 2.5
+        }
+      },
+      "timeframe": "MINUTE_5"
+    }
+  },
+  "end_utc": "2026-05-17T00:00:00Z",
+  "generated_at": "2026-05-17T08:56:51.291662+00:00",
+  "rows": [
+    {
+      "average_loss": -50.352145737327454,
+      "average_win": 143.0872448979591,
+      "best_trade": 362.9785714285754,
+      "ending_balance": 13538.439285714208,
+      "evaluated_bars": 49344,
+      "generated_signals": 1544,
+      "net_profit": 3538.4392857142084,
+      "profit_factor": 1.283362310318478,
+      "rejected_evaluations": 47800,
+      "report_directory": "/Users/vishaljani/Documents/CapitalAlgo/reports/full_current_btc_gold_fixed/individual_runs/BTCUSD_MINUTE_5_20251117T000000_20260516T235500",
+      "risk_rejected_signals": 1184,
+      "starting_balance": 10000.0,
+      "status": "ok",
+      "strategy_type": "breakout",
+      "symbol": "BTCUSD",
+      "total_return_pct": 35.38439285714208,
+      "trade_count": 360,
+      "win_rate_pct": 31.11111111111111,
+      "worst_trade": -203.40535714285943
+    },
+    {
+      "average_loss": -68.6954865016874,
+      "average_win": 51.342775621118186,
+      "best_trade": 202.11642857142579,
+      "ending_balance": 10722.743928571432,
+      "evaluated_bars": 33322,
+      "generated_signals": 835,
+      "net_profit": 722.7439285714318,
+      "profit_factor": 1.082842372405732,
+      "rejected_evaluations": 32487,
+      "report_directory": "/Users/vishaljani/Documents/CapitalAlgo/reports/full_current_btc_gold_fixed/individual_runs/GOLD_MINUTE_5_20251117T000000_20260515T205000",
+      "risk_rejected_signals": 524,
+      "starting_balance": 10000.0,
+      "status": "ok",
+      "strategy_type": "mean_reversion",
+      "symbol": "GOLD",
+      "total_return_pct": 7.227439285714317,
+      "trade_count": 311,
+      "win_rate_pct": 59.163987138263664,
+      "worst_trade": -274.1919642857147
+    }
+  ],
+  "start_utc": "2025-11-17T00:00:00Z",
+  "symbols": [
+    "BTCUSD",
+    "GOLD"
+  ],
+  "totals": {
+    "generated_signals": 2379,
+    "net_profit": 4261.18321428564,
+    "risk_rejected_signals": 1708,
+    "trade_count": 671
+  }
+}

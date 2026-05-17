@@ -1,0 +1,34 @@
+{
+  "sessions": {
+    "tokyo_fx": {
+      "timezone": "Asia/Tokyo",
+      "open": "09:00",
+      "close": "17:00"
+    },
+    "london_fx": {
+      "timezone": "Europe/London",
+      "open": "08:00",
+      "close": "16:30"
+    },
+    "new_york_fx": {
+      "timezone": "America/New_York",
+      "open": "08:00",
+      "close": "17:00"
+    },
+    "new_york_cash": {
+      "timezone": "America/New_York",
+      "open": "09:30",
+      "close": "16:00"
+    },
+    "crypto_24h": {
+      "timezone": "UTC",
+      "open": "00:00",
+      "close": "23:59"
+    },
+    "metals": {
+      "timezone": "UTC",
+      "open": "00:00",
+      "close": "23:59"
+    }
+  }
+}

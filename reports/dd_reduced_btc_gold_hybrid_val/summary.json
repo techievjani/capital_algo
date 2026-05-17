@@ -1,0 +1,134 @@
+{
+  "config": {
+    "backtest": {
+      "account_currency": "USD",
+      "commission_per_trade": 0.0,
+      "default_symbol": "US100",
+      "default_timeframe": "MINUTE",
+      "report_directory": "reports",
+      "slippage_points": 0.0,
+      "spread_points": 0.0,
+      "starting_balance": 10000.0,
+      "trailing_stop": {
+        "activation_r": 0.5,
+        "distance_r": 0.5,
+        "enabled": false
+      }
+    },
+    "risk": {
+      "account_risk_per_trade_pct": 0.5,
+      "allow_live_trading": false,
+      "max_daily_loss_pct": 2.0,
+      "max_open_positions": 2,
+      "max_trades_per_day": 3
+    },
+    "strategy": {
+      "atr_period": 14,
+      "description": "Hybrid asset strategy: BTCUSD uses 5-minute rolling-range breakout; GOLD uses 5-minute ATR stretch mean reversion.",
+      "ema_period": 100,
+      "history_bars": 280,
+      "overbought_rsi": 70.0,
+      "oversold_rsi": 30.0,
+      "rsi_period": 14,
+      "strategy_id": "btc_breakout_gold_mean_reversion_v1",
+      "symbols": {
+        "BTCUSD": {
+          "atr_period": 14,
+          "atr_stop_mult": 1.0,
+          "ema_period": 250,
+          "entry_hours_utc": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "lookback_bars": 24,
+          "max_hold_bars": 48,
+          "max_trades_per_day": 2,
+          "strategy_type": "breakout",
+          "target_r": 3.0
+        },
+        "GOLD": {
+          "atr_stop_mult": 1.5,
+          "entry_hours_utc": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "max_hold_bars": 48,
+          "strategy_type": "mean_reversion",
+          "target_r": 0.8,
+          "z_score": 2.5
+        }
+      },
+      "timeframe": "MINUTE_5"
+    }
+  },
+  "end_utc": "2026-04-11T00:00:00Z",
+  "generated_at": "2026-05-17T08:39:26.393010+00:00",
+  "rows": [
+    {
+      "average_loss": -56.7559657095086,
+      "average_win": 163.95357925469227,
+      "best_trade": 191.13911866066232,
+      "ending_balance": 12869.078294224626,
+      "evaluated_bars": 9606,
+      "generated_signals": 257,
+      "net_profit": 2869.078294224626,
+      "profit_factor": 2.2961828626941827,
+      "rejected_evaluations": 9349,
+      "report_directory": "/Users/vishaljani/Documents/CapitalAlgo/reports/dd_reduced_btc_gold_hybrid_val/individual_runs/BTCUSD_MINUTE_5_20260306T000000_20260410T235500",
+      "risk_rejected_signals": 187,
+      "starting_balance": 10000.0,
+      "status": "ok",
+      "strategy_type": "breakout",
+      "symbol": "BTCUSD",
+      "total_return_pct": 28.690782942246262,
+      "trade_count": 70,
+      "win_rate_pct": 44.285714285714285,
+      "worst_trade": -64.66873514685741
+    },
+    {
+      "average_loss": -49.78933912849755,
+      "average_win": 39.651398066898174,
+      "best_trade": 40.14915092285064,
+      "ending_balance": 9994.597802923006,
+      "evaluated_bars": 6389,
+      "generated_signals": 173,
+      "net_profit": -5.402197076993616,
+      "profit_factor": 0.9954791216590781,
+      "rejected_evaluations": 6216,
+      "report_directory": "/Users/vishaljani/Documents/CapitalAlgo/reports/dd_reduced_btc_gold_hybrid_val/individual_runs/GOLD_MINUTE_5_20260306T000000_20260410T205000",
+      "risk_rejected_signals": 119,
+      "starting_balance": 10000.0,
+      "status": "ok",
+      "strategy_type": "mean_reversion",
+      "symbol": "GOLD",
+      "total_return_pct": -0.05402197076993616,
+      "trade_count": 54,
+      "win_rate_pct": 55.55555555555556,
+      "worst_trade": -50.387184408176935
+    }
+  ],
+  "start_utc": "2026-03-06T00:00:00Z",
+  "symbols": [
+    "BTCUSD",
+    "GOLD"
+  ],
+  "totals": {
+    "generated_signals": 430,
+    "net_profit": 2863.6760971476324,
+    "risk_rejected_signals": 306,
+    "trade_count": 124
+  }
+}

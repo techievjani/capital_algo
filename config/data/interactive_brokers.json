@@ -1,0 +1,7 @@
+{
+  "environment": "paper",
+  "default_bar_size": "1 min",
+  "what_to_show": "TRADES",
+  "use_rth": false
+}
+

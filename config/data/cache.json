@@ -1,0 +1,16 @@
+{
+  "historical_store": {
+    "type": "sqlite",
+    "path": "data/market.sqlite"
+  },
+  "csv": {
+    "import_directory": "data/imports",
+    "export_directory": "data/exports"
+  },
+  "fetch_policy": "cache_first",
+  "allow_api_fetch_for_missing_data": true,
+  "fallback_data_provider": "capital",
+  "fallback_data_config": "config/data/capital.json",
+  "timestamp_timezone": "UTC"
+}
+

@@ -1,0 +1,20 @@
+{
+  "strategy_id": "orb_v1",
+  "session_name": "new_york_cash",
+  "opening_range_minutes": 15,
+  "trade_direction": "both",
+  "entry_buffer_points": 0,
+  "stop_loss_mode": "opposite_range",
+  "atr_period": 14,
+  "atr_stop_multiplier": 1.0,
+  "ema_period": 20,
+  "use_vwap_filter": true,
+  "use_ema_filter": true,
+  "allow_missing_trend_filter": true,
+  "max_spread_points": null,
+  "require_spread_data": false,
+  "max_opening_range_points": null,
+  "take_profit_r_multiple": 2.0,
+  "max_trades_per_session": 2,
+  "close_at_session_end": true
+}

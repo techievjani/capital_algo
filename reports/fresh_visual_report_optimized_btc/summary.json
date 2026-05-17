@@ -1,0 +1,30 @@
+{
+  "best_trade": 251.53,
+  "by_month": {
+    "2025-11": 138.01,
+    "2025-12": 911.18,
+    "2026-01": 1211.15,
+    "2026-02": 1012.99,
+    "2026-03": 2330.81,
+    "2026-04": 2180.42,
+    "2026-05": 1072.84
+  },
+  "by_run": {
+    "fresh_btc_gold_hybrid_optimized_btc": 7731.92,
+    "fresh_fx_pullback_core3": 1125.48
+  },
+  "by_symbol": {
+    "BTCUSD": 6669.97,
+    "EURJPY": 293.69,
+    "EURUSD": 197.5,
+    "GBPJPY": 634.29,
+    "GOLD": 1061.95
+  },
+  "losses": 516,
+  "max_drawdown": -927.57,
+  "net_profit": 8857.4,
+  "trade_count": 951,
+  "win_rate_pct": 45.53,
+  "wins": 433,
+  "worst_trade": -85.1
+}

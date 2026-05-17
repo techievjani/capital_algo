@@ -1,0 +1,67 @@
+{
+  "strategy_id": "forex_pullback_london_open_v1",
+  "symbols": [
+    "EURJPY",
+    "EURUSD",
+    "GBPJPY"
+  ],
+  "fixed_position_sizes": {
+    "EURJPY": 1.0,
+    "EURUSD": 1.0,
+    "GBPJPY": 1.0
+  },
+  "session": {
+    "enabled": false,
+    "start": "00:00",
+    "end": "23:59"
+  },
+  "indicators": {
+    "ema_15m": 50,
+    "ema_5m": 20,
+    "ema_1m_fast": 9,
+    "ema_1m_slow": 20,
+    "adx_period": 14,
+    "adx_min": 20
+  },
+  "filters": {
+    "vwap_chop_lookback_minutes": 15,
+    "max_vwap_crosses": 3,
+    "allow_missing_spread": true,
+    "require_news_data": false,
+    "entry_hours_utc": [
+      7
+    ]
+  },
+  "pip_size": {
+    "EURJPY": 0.01,
+    "EURUSD": 0.0001,
+    "GBPJPY": 0.01
+  },
+  "max_spread": {
+    "EURJPY": 2.5,
+    "EURUSD": 1.2,
+    "GBPJPY": 3.5
+  },
+  "min_impulse_pips": {
+    "EURJPY": 6,
+    "EURUSD": 5,
+    "GBPJPY": 6
+  },
+  "pullback_buffer_pips": {
+    "EURJPY": 2,
+    "EURUSD": 1.5,
+    "GBPJPY": 2
+  },
+  "stop_buffer_pips": {
+    "EURJPY": 1.5,
+    "EURUSD": 1,
+    "GBPJPY": 1.5
+  },
+  "target_r": 1.0,
+  "news_blackout": {
+    "enabled": false,
+    "minutes_before": 15,
+    "minutes_after": 15,
+    "impact": "high"
+  }
+}

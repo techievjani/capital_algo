@@ -1,0 +1,190 @@
+portfolio,sizing,risk_pct,fixed,policy,ending,withdrawn,profit,maxdd,trades,pf,months_paid,wiped
+BTC only,dynamic,0.5,,forced,0,5333.28,333.28,-5000.0,329,,5,True
+BTC only,dynamic,0.5,,profit_floor,5000.0,2348.12,2348.12,-1058.32,360,1.37,2,False
+BTC only,dynamic,0.5,,floor_full,5410.3,2000.0,2410.3,-1051.86,360,1.37,2,False
+BTC only,dynamic,1.0,,forced,0,5773.45,773.45,-5000.0,329,,5,True
+BTC only,dynamic,1.0,,profit_floor,7448.64,3188.1,5636.74,-1718.2,360,1.4,3,False
+BTC only,dynamic,1.0,,floor_full,7867.56,3000.0,5867.56,-1753.81,360,1.4,3,False
+BTC only,dynamic,1.5,,forced,0.0,6313.01,1313.01,-5042.65,360,1.15,6,False
+BTC only,dynamic,1.5,,profit_floor,11992.95,3197.7,10190.65,-2708.76,360,1.42,3,False
+BTC only,dynamic,1.5,,floor_full,12628.65,3000.0,10628.65,-2792.37,360,1.42,3,False
+BTC only,dynamic,2.0,,forced,0.0,6877.63,1877.63,-5042.71,360,1.16,6,False
+BTC only,dynamic,2.0,,profit_floor,18246.75,3151.8,16398.55,-4482.27,360,1.43,3,False
+BTC only,dynamic,2.0,,floor_full,18935.98,3000.0,16935.98,-4606.97,360,1.43,3,False
+BTC only,dynamic,3.0,,forced,105.26,7000.0,2105.26,-4917.09,360,1.13,7,False
+BTC only,dynamic,3.0,,profit_floor,36774.32,3011.21,34785.52,-12974.01,360,1.43,3,False
+BTC only,dynamic,3.0,,floor_full,36868.86,3000.0,34868.86,-13006.49,360,1.43,3,False
+Gold only,dynamic,0.5,,forced,0,5267.4,267.4,-5000.0,287,,5,True
+Gold only,dynamic,0.5,,profit_floor,4973.66,507.15,480.8,-465.07,314,1.15,0,False
+Gold only,dynamic,0.5,,floor_full,5497.71,0,497.71,-277.1,314,1.15,0,False
+Gold only,dynamic,1.0,,forced,0,5556.33,556.33,-5000.0,287,,5,True
+Gold only,dynamic,1.0,,profit_floor,4944.65,997.88,942.53,-940.37,314,1.14,0,False
+Gold only,dynamic,1.0,,floor_full,5018.82,1000.0,1018.82,-1396.07,314,1.14,1,False
+Gold only,dynamic,1.5,,forced,0,5864.16,864.16,-5000.0,287,,5,True
+Gold only,dynamic,1.5,,profit_floor,4913.02,1470.79,1383.81,-1425.69,314,1.14,0,False
+Gold only,dynamic,1.5,,floor_full,5493.39,1000.0,1493.39,-1862.82,314,1.14,1,False
+Gold only,dynamic,2.0,,forced,0.0,6183.04,1183.04,-5197.45,314,1.15,6,False
+Gold only,dynamic,2.0,,profit_floor,4878.82,1924.52,1803.34,-1920.83,314,1.14,0,False
+Gold only,dynamic,2.0,,floor_full,4939.31,2000.0,1939.31,-2046.73,314,1.13,2,False
+Gold only,dynamic,3.0,,forced,0.0,6830.99,1830.99,-5881.87,314,1.14,6,False
+Gold only,dynamic,3.0,,profit_floor,4802.88,2778.93,2581.81,-2951.66,314,1.13,1,False
+Gold only,dynamic,3.0,,floor_full,4810.22,3000.0,2810.22,-2879.8,314,1.13,3,False
+BTC + Gold,dynamic,0.5,,forced,0,5744.84,744.84,-5000.0,615,,5,True
+BTC + Gold,dynamic,0.5,,profit_floor,5000.0,2876.1,2876.1,-1303.21,674,1.29,1,False
+BTC + Gold,dynamic,0.5,,floor_full,5125.07,3000.0,3125.07,-1835.06,674,1.3,3,False
+BTC + Gold,dynamic,1.0,,forced,101.13,7000.0,2101.13,-5001.01,674,1.19,7,False
+BTC + Gold,dynamic,1.0,,profit_floor,8086.75,3809.48,6896.23,-1896.39,674,1.31,3,False
+BTC + Gold,dynamic,1.0,,floor_full,10052.3,3000.0,8052.3,-2090.28,674,1.31,3,False
+BTC + Gold,dynamic,1.5,,forced,2339.79,7000.0,4339.79,-3413.08,674,1.22,7,False
+BTC + Gold,dynamic,1.5,,profit_floor,13350.18,4128.81,12478.99,-3200.55,674,1.32,3,False
+BTC + Gold,dynamic,1.5,,floor_full,13943.16,4000.0,12943.16,-3291.48,674,1.31,4,False
+BTC + Gold,dynamic,2.0,,forced,5689.07,7000.0,7689.07,-3413.1,674,1.25,7,False
+BTC + Gold,dynamic,2.0,,profit_floor,20741.8,4390.34,20132.14,-5751.05,674,1.32,4,False
+BTC + Gold,dynamic,2.0,,floor_full,22734.22,4000.0,21734.22,-6278.08,674,1.33,4,False
+BTC + Gold,dynamic,3.0,,forced,16224.85,7000.0,18224.85,-7214.74,674,1.27,7,False
+BTC + Gold,dynamic,3.0,,profit_floor,44286.42,4700.14,43986.56,-18968.52,674,1.31,4,False
+BTC + Gold,dynamic,3.0,,floor_full,51363.27,4000.0,50363.27,-21932.71,674,1.32,4,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",forced,0.0,6618.24,1618.24,-5000.0,360,1.26,6,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",profit_floor,5000.0,1618.24,1618.24,-785.35,360,1.26,0,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",floor_full,5618.24,1000.0,1618.24,-1018.55,360,1.26,1,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",forced,0.0,6618.24,1618.24,-5000.0,360,1.26,6,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",profit_floor,5000.0,1618.24,1618.24,-785.35,360,1.26,0,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",floor_full,5618.24,1000.0,1618.24,-1018.55,360,1.26,1,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",forced,0.0,6618.24,1618.24,-5000.0,360,1.26,6,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",profit_floor,5000.0,1618.24,1618.24,-785.35,360,1.26,0,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",floor_full,5618.24,1000.0,1618.24,-1018.55,360,1.26,1,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",forced,0.0,6618.24,1618.24,-5000.0,360,1.26,6,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",profit_floor,5000.0,1618.24,1618.24,-785.35,360,1.26,0,False
+BTC only,fixed,,"{""BTCUSD"": 0.25}",floor_full,5618.24,1000.0,1618.24,-1018.55,360,1.26,1,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",forced,1236.47,7000.0,3236.47,-4810.15,360,1.26,7,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",profit_floor,5000.0,3236.47,3236.47,-1696.5,360,1.26,2,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",floor_full,5236.47,3000.0,3236.47,-1766.95,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",forced,1236.47,7000.0,3236.47,-4810.15,360,1.26,7,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",profit_floor,5000.0,3236.47,3236.47,-1696.5,360,1.26,2,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",floor_full,5236.47,3000.0,3236.47,-1766.95,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",forced,1236.47,7000.0,3236.47,-4810.15,360,1.26,7,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",profit_floor,5000.0,3236.47,3236.47,-1696.5,360,1.26,2,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",floor_full,5236.47,3000.0,3236.47,-1766.95,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",forced,1236.47,7000.0,3236.47,-4810.15,360,1.26,7,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",profit_floor,5000.0,3236.47,3236.47,-1696.5,360,1.26,2,False
+BTC only,fixed,,"{""BTCUSD"": 0.5}",floor_full,5236.47,3000.0,3236.47,-1766.95,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 0.75}",forced,0,4000.0,-1079.11,-5000.0,209,,4,True
+BTC only,fixed,,"{""BTCUSD"": 0.75}",profit_floor,6394.33,3460.38,4854.71,-2055.82,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 0.75}",floor_full,6854.71,3000.0,4854.71,-1807.6,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 0.75}",forced,0,4000.0,-1079.11,-5000.0,209,,4,True
+BTC only,fixed,,"{""BTCUSD"": 0.75}",profit_floor,6394.33,3460.38,4854.71,-2055.82,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 0.75}",floor_full,6854.71,3000.0,4854.71,-1807.6,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 0.75}",forced,0,4000.0,-1079.11,-5000.0,209,,4,True
+BTC only,fixed,,"{""BTCUSD"": 0.75}",profit_floor,6394.33,3460.38,4854.71,-2055.82,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 0.75}",floor_full,6854.71,3000.0,4854.71,-1807.6,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 0.75}",forced,0,4000.0,-1079.11,-5000.0,209,,4,True
+BTC only,fixed,,"{""BTCUSD"": 0.75}",profit_floor,6394.33,3460.38,4854.71,-2055.82,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 0.75}",floor_full,6854.71,3000.0,4854.71,-1807.6,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 1.0}",forced,0,3991.66,-1129.5,-5000.0,207,,3,True
+BTC only,fixed,,"{""BTCUSD"": 1.0}",profit_floor,7859.1,3613.84,6472.94,-2741.09,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 1.0}",floor_full,8472.94,3000.0,6472.94,-2410.14,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 1.0}",forced,0,3991.66,-1129.5,-5000.0,207,,3,True
+BTC only,fixed,,"{""BTCUSD"": 1.0}",profit_floor,7859.1,3613.84,6472.94,-2741.09,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 1.0}",floor_full,8472.94,3000.0,6472.94,-2410.14,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 1.0}",forced,0,3991.66,-1129.5,-5000.0,207,,3,True
+BTC only,fixed,,"{""BTCUSD"": 1.0}",profit_floor,7859.1,3613.84,6472.94,-2741.09,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 1.0}",floor_full,8472.94,3000.0,6472.94,-2410.14,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 1.0}",forced,0,3991.66,-1129.5,-5000.0,207,,3,True
+BTC only,fixed,,"{""BTCUSD"": 1.0}",profit_floor,7859.1,3613.84,6472.94,-2741.09,360,1.26,3,False
+BTC only,fixed,,"{""BTCUSD"": 1.0}",floor_full,8472.94,3000.0,6472.94,-2410.14,360,1.26,3,False
+Gold only,fixed,,"{""GOLD"": 2.5}",forced,0,5417.9,389.97,-5000.0,287,,5,True
+Gold only,fixed,,"{""GOLD"": 2.5}",profit_floor,4924.56,417.9,342.46,-516.6,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 2.5}",floor_full,5342.46,0,342.46,-439.01,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 5.0}",forced,0,5835.81,779.94,-5000.0,287,,5,True
+Gold only,fixed,,"{""GOLD"": 5.0}",profit_floor,4849.11,835.81,684.92,-1033.21,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 5.0}",floor_full,5684.92,0,684.92,-878.02,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 7.5}",forced,0,6000.0,978.52,-5000.0,289,,6,True
+Gold only,fixed,,"{""GOLD"": 7.5}",profit_floor,4773.67,1253.71,1027.38,-1549.81,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 7.5}",floor_full,5027.38,1000.0,1027.38,-1684.0,314,1.08,1,False
+Gold only,fixed,,"{""GOLD"": 10.0}",forced,0.0,6369.84,1369.84,-5343.36,314,1.08,6,False
+Gold only,fixed,,"{""GOLD"": 10.0}",profit_floor,4698.23,1671.61,1369.84,-2066.42,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 10.0}",floor_full,5369.84,1000.0,1369.84,-2756.05,314,1.08,1,False
+Gold only,fixed,,"{""GOLD"": 2.5}",forced,0,5417.9,389.97,-5000.0,287,,5,True
+Gold only,fixed,,"{""GOLD"": 2.5}",profit_floor,4924.56,417.9,342.46,-516.6,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 2.5}",floor_full,5342.46,0,342.46,-439.01,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 5.0}",forced,0,5835.81,779.94,-5000.0,287,,5,True
+Gold only,fixed,,"{""GOLD"": 5.0}",profit_floor,4849.11,835.81,684.92,-1033.21,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 5.0}",floor_full,5684.92,0,684.92,-878.02,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 7.5}",forced,0,6000.0,978.52,-5000.0,289,,6,True
+Gold only,fixed,,"{""GOLD"": 7.5}",profit_floor,4773.67,1253.71,1027.38,-1549.81,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 7.5}",floor_full,5027.38,1000.0,1027.38,-1684.0,314,1.08,1,False
+Gold only,fixed,,"{""GOLD"": 10.0}",forced,0.0,6369.84,1369.84,-5343.36,314,1.08,6,False
+Gold only,fixed,,"{""GOLD"": 10.0}",profit_floor,4698.23,1671.61,1369.84,-2066.42,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 10.0}",floor_full,5369.84,1000.0,1369.84,-2756.05,314,1.08,1,False
+Gold only,fixed,,"{""GOLD"": 2.5}",forced,0,5417.9,389.97,-5000.0,287,,5,True
+Gold only,fixed,,"{""GOLD"": 2.5}",profit_floor,4924.56,417.9,342.46,-516.6,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 2.5}",floor_full,5342.46,0,342.46,-439.01,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 5.0}",forced,0,5835.81,779.94,-5000.0,287,,5,True
+Gold only,fixed,,"{""GOLD"": 5.0}",profit_floor,4849.11,835.81,684.92,-1033.21,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 5.0}",floor_full,5684.92,0,684.92,-878.02,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 7.5}",forced,0,6000.0,978.52,-5000.0,289,,6,True
+Gold only,fixed,,"{""GOLD"": 7.5}",profit_floor,4773.67,1253.71,1027.38,-1549.81,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 7.5}",floor_full,5027.38,1000.0,1027.38,-1684.0,314,1.08,1,False
+Gold only,fixed,,"{""GOLD"": 10.0}",forced,0.0,6369.84,1369.84,-5343.36,314,1.08,6,False
+Gold only,fixed,,"{""GOLD"": 10.0}",profit_floor,4698.23,1671.61,1369.84,-2066.42,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 10.0}",floor_full,5369.84,1000.0,1369.84,-2756.05,314,1.08,1,False
+Gold only,fixed,,"{""GOLD"": 2.5}",forced,0,5417.9,389.97,-5000.0,287,,5,True
+Gold only,fixed,,"{""GOLD"": 2.5}",profit_floor,4924.56,417.9,342.46,-516.6,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 2.5}",floor_full,5342.46,0,342.46,-439.01,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 5.0}",forced,0,5835.81,779.94,-5000.0,287,,5,True
+Gold only,fixed,,"{""GOLD"": 5.0}",profit_floor,4849.11,835.81,684.92,-1033.21,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 5.0}",floor_full,5684.92,0,684.92,-878.02,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 7.5}",forced,0,6000.0,978.52,-5000.0,289,,6,True
+Gold only,fixed,,"{""GOLD"": 7.5}",profit_floor,4773.67,1253.71,1027.38,-1549.81,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 7.5}",floor_full,5027.38,1000.0,1027.38,-1684.0,314,1.08,1,False
+Gold only,fixed,,"{""GOLD"": 10.0}",forced,0.0,6369.84,1369.84,-5343.36,314,1.08,6,False
+Gold only,fixed,,"{""GOLD"": 10.0}",profit_floor,4698.23,1671.61,1369.84,-2066.42,314,1.08,0,False
+Gold only,fixed,,"{""GOLD"": 10.0}",floor_full,5369.84,1000.0,1369.84,-2756.05,314,1.08,1,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 2.5}",forced,0.0,6960.7,1960.7,-5000.0,674,1.18,6,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 2.5}",profit_floor,5000.0,1960.7,1960.7,-1066.99,674,1.18,0,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 2.5}",floor_full,5960.7,1000.0,1960.7,-1098.68,674,1.18,1,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 5.0}",forced,303.15,7000.0,2303.15,-4696.85,674,1.15,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 5.0}",profit_floor,5000.0,2303.15,2303.15,-1429.09,674,1.15,1,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 5.0}",floor_full,5303.15,2000.0,2303.15,-1483.82,674,1.15,2,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 7.5}",forced,645.61,7000.0,2645.61,-4368.75,674,1.14,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 7.5}",profit_floor,5000.0,2645.61,2645.61,-1852.99,674,1.14,1,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 7.5}",floor_full,5645.61,2000.0,2645.61,-1792.84,674,1.14,2,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 10.0}",forced,988.07,7000.0,2988.07,-4379.28,674,1.13,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 10.0}",profit_floor,5000.0,2988.07,2988.07,-2276.89,674,1.13,1,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.25, ""GOLD"": 10.0}",floor_full,5988.07,2000.0,2988.07,-2103.87,674,1.13,2,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 2.5}",forced,1578.93,7000.0,3578.93,-4568.74,674,1.21,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 2.5}",profit_floor,5166.84,3412.09,3578.93,-1842.39,674,1.21,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 2.5}",floor_full,5578.93,3000.0,3578.93,-1842.39,674,1.21,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 5.0}",forced,1921.39,7000.0,3921.39,-4327.32,674,1.18,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 5.0}",profit_floor,5384.86,3536.53,3921.39,-1954.48,674,1.18,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 5.0}",floor_full,5921.39,3000.0,3921.39,-1954.48,674,1.18,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 7.5}",forced,2263.85,7000.0,4263.85,-4085.9,674,1.17,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 7.5}",profit_floor,5485.78,3778.07,4263.85,-2106.17,674,1.17,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 7.5}",floor_full,6263.85,3000.0,4263.85,-2106.17,674,1.17,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 10.0}",forced,2606.31,7000.0,4606.31,-4177.95,674,1.15,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 10.0}",profit_floor,5606.31,4000.0,4606.31,-2257.86,674,1.15,4,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.5, ""GOLD"": 10.0}",floor_full,5606.31,4000.0,4606.31,-2257.86,674,1.15,4,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 2.5}",forced,3197.17,7000.0,5197.17,-4973.81,674,1.23,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 2.5}",profit_floor,6631.62,3565.55,5197.17,-2080.85,674,1.23,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 2.5}",floor_full,7197.17,3000.0,5197.17,-1837.74,674,1.23,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 5.0}",forced,3539.63,7000.0,5539.63,-4732.39,674,1.2,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 5.0}",profit_floor,6868.9,3670.72,5539.63,-2167.78,674,1.2,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 5.0}",floor_full,7539.63,3000.0,5539.63,-2060.31,674,1.2,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 7.5}",forced,3882.09,7000.0,5882.09,-4490.97,674,1.18,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 7.5}",profit_floor,7077.3,3804.79,5882.09,-2283.61,674,1.18,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 7.5}",floor_full,7882.09,3000.0,5882.09,-2283.61,674,1.18,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 10.0}",forced,4224.55,7000.0,6224.55,-4506.91,674,1.17,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 10.0}",profit_floor,7224.55,4000.0,6224.55,-2506.91,674,1.17,4,False
+BTC + Gold,fixed,,"{""BTCUSD"": 0.75, ""GOLD"": 10.0}",floor_full,7224.55,4000.0,6224.55,-2506.91,674,1.17,4,False
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 2.5}",forced,0,4000.0,-1159.25,-5000.0,398,,4,True
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 2.5}",profit_floor,8096.39,3719.01,6815.4,-2745.49,674,1.23,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 2.5}",floor_full,8815.4,3000.0,6815.4,-2440.27,674,1.23,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 5.0}",forced,0,4000.0,-1061.2,-5000.0,399,,4,True
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 5.0}",profit_floor,8333.68,3824.18,7157.86,-2832.42,674,1.21,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 5.0}",floor_full,9157.86,3000.0,7157.86,-2598.21,674,1.21,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 7.5}",forced,5500.32,7000.0,7500.32,-4896.05,674,1.2,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 7.5}",profit_floor,8570.97,3929.35,7500.32,-2919.35,674,1.2,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 7.5}",floor_full,9500.32,3000.0,7500.32,-2821.51,674,1.2,3,False
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 10.0}",forced,5842.78,7000.0,7842.78,-5044.82,674,1.18,7,False
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 10.0}",profit_floor,8808.26,4034.52,7842.78,-3079.34,674,1.18,4,False
+BTC + Gold,fixed,,"{""BTCUSD"": 1.0, ""GOLD"": 10.0}",floor_full,8842.78,4000.0,7842.78,-3044.82,674,1.18,4,False

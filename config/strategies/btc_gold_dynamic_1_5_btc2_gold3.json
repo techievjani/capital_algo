@@ -1,0 +1,35 @@
+{
+  "strategy_id": "btc_gold_dynamic_1_5_btc2_gold3_v1",
+  "description": "Comparison: BTC+Gold dynamic 1.5% risk with BTC max 2 trades/day and Gold max 3 trades/day.",
+  "timeframe": "MINUTE_5",
+  "history_bars": 280,
+  "ema_period": 100,
+  "atr_period": 14,
+  "rsi_period": 14,
+  "oversold_rsi": 30.0,
+  "overbought_rsi": 70.0,
+  "symbols": {
+    "BTCUSD": {
+      "strategy_type": "breakout",
+      "lookback_bars": 24,
+      "ema_period": 250,
+      "atr_period": 14,
+      "target_r": 3.0,
+      "atr_stop_mult": 1.0,
+      "max_hold_bars": 48,
+      "max_trades_per_day": 2,
+      "account_risk_per_trade_pct": 1.5,
+      "entry_hours_utc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+    },
+    "GOLD": {
+      "strategy_type": "mean_reversion",
+      "z_score": 2.5,
+      "target_r": 0.8,
+      "atr_stop_mult": 1.5,
+      "max_hold_bars": 48,
+      "max_trades_per_day": 3,
+      "account_risk_per_trade_pct": 1.5,
+      "entry_hours_utc": [13, 14, 15, 16, 17, 18, 19]
+    }
+  }
+}

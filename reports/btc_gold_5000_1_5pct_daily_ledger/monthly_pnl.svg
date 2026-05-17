@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="430" viewBox="0 0 1100 430">
+<style>text{font-family:Arial,sans-serif;fill:#1f2937}.grid{stroke:#e5e7eb}.line{fill:none;stroke:#2563eb;stroke-width:2.4}.draw{fill:none;stroke:#dc2626;stroke-width:2.4}.barpos{fill:#16a34a}.barneg{fill:#dc2626}.muted{fill:#6b7280;font-size:12px}.title{font-size:20px;font-weight:700}</style>
+<rect width="1100" height="430" fill="#fff"/>
+<text class="title" x="24" y="34">Monthly Trading P&amp;L</text>
+<line class="grid" x1="80" x2="1072" y1="323.2" y2="323.2"/>
+<rect class="barneg" x="106.9" y="323.2" width="87.9" height="6.1"/>
+<text class="muted" text-anchor="middle" x="150.9" y="396">2025-11</text>
+<rect class="barpos" x="248.6" y="232.1" width="87.9" height="91.1"/>
+<text class="muted" text-anchor="middle" x="292.6" y="396">2025-12</text>
+<rect class="barpos" x="390.4" y="303.7" width="87.9" height="19.5"/>
+<text class="muted" text-anchor="middle" x="434.3" y="396">2026-01</text>
+<rect class="barneg" x="532.1" y="323.2" width="87.9" height="4.5"/>
+<text class="muted" text-anchor="middle" x="576.0" y="396">2026-02</text>
+<rect class="barpos" x="673.8" y="173.6" width="87.9" height="149.6"/>
+<text class="muted" text-anchor="middle" x="717.7" y="396">2026-03</text>
+<rect class="barpos" x="815.5" y="90.6" width="87.9" height="232.6"/>
+<text class="muted" text-anchor="middle" x="859.4" y="396">2026-04</text>
+<rect class="barpos" x="957.2" y="289.0" width="87.9" height="34.2"/>
+<text class="muted" text-anchor="middle" x="1001.1" y="396">2026-05</text>
+</svg>

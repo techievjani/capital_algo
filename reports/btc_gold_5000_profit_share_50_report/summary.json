@@ -1,0 +1,18 @@
+{
+  "btc_pnl": 10858.57,
+  "ending_balance": 11275.49,
+  "gold_pnl": 1817.55,
+  "max_drawdown": -3833.62,
+  "net_after_withdrawals": 12676.11,
+  "profit_factor": 1.3188,
+  "profit_withdrawal_pct": 50.0,
+  "retained_profit": 6275.49,
+  "risk_per_trade_pct": 1.5,
+  "starting_balance": 5000.0,
+  "trade_count": 674,
+  "trading_profit": 12676.11,
+  "win_rate_pct": 44.21,
+  "withdrawal_months": 5,
+  "withdrawal_policy": "withdraw_50pct_of_positive_monthly_profit",
+  "withdrawn_total": 6400.63
+}

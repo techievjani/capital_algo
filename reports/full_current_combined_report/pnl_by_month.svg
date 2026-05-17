@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420">
+<style>text{font-family:Arial,sans-serif;fill:#1f2937}.grid{stroke:#e5e7eb}.axis{stroke:#9ca3af}.line{fill:none;stroke:#2563eb;stroke-width:2.5}.draw{fill:none;stroke:#dc2626;stroke-width:2.5}.barpos{fill:#16a34a}.barneg{fill:#dc2626}.muted{fill:#6b7280;font-size:12px}.title{font-size:20px;font-weight:700}.label{font-size:12px}</style>
+<rect width="980" height="420" fill="#fff"/>
+<text class="title" x="24" y="34">Net P&amp;L by Month</text>
+<line class="axis" x1="80" x2="956" y1="284.1" y2="284.1"/>
+<rect class="barneg" x="103.8" y="284.1" width="77.6" height="37.8" rx="3"/>
+<text class="label" text-anchor="middle" x="142.6" y="278.1">-350.44</text>
+<text class="muted" text-anchor="middle" x="142.6" y="392">2025-11</text>
+<rect class="barpos" x="228.9" y="141.1" width="77.6" height="143.1" rx="3"/>
+<text class="label" text-anchor="middle" x="267.7" y="135.1">1,326.43</text>
+<text class="muted" text-anchor="middle" x="267.7" y="392">2025-12</text>
+<rect class="barpos" x="354.1" y="275.4" width="77.6" height="8.8" rx="3"/>
+<text class="label" text-anchor="middle" x="392.9" y="269.4">81.43</text>
+<text class="muted" text-anchor="middle" x="392.9" y="392">2026-01</text>
+<rect class="barneg" x="479.2" y="284.1" width="77.6" height="19.9" rx="3"/>
+<text class="label" text-anchor="middle" x="518.0" y="278.1">-184.26</text>
+<text class="muted" text-anchor="middle" x="518.0" y="392">2026-02</text>
+<rect class="barpos" x="604.3" y="88.1" width="77.6" height="196.1" rx="3"/>
+<text class="label" text-anchor="middle" x="643.1" y="82.1">1,817.89</text>
+<text class="muted" text-anchor="middle" x="643.1" y="392">2026-03</text>
+<rect class="barpos" x="729.5" y="132.7" width="77.6" height="151.4" rx="3"/>
+<text class="label" text-anchor="middle" x="768.3" y="126.7">1,403.92</text>
+<text class="muted" text-anchor="middle" x="768.3" y="392">2026-04</text>
+<rect class="barpos" x="854.6" y="265.7" width="77.6" height="18.5" rx="3"/>
+<text class="label" text-anchor="middle" x="893.4" y="259.7">171.08</text>
+<text class="muted" text-anchor="middle" x="893.4" y="392">2026-05</text>
+</svg>

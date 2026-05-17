@@ -1,0 +1,14 @@
+{
+  "mode": "backtest",
+  "active_strategy": "orb",
+  "strategy_config": "config/strategies/orb.json",
+  "broker": "capital",
+  "broker_config": "config/brokers/capital.json",
+  "data_provider": "cached",
+  "data_config": "config/data/cache.json",
+  "risk_config": "config/risk.json",
+  "instruments_config": "config/instruments.json",
+  "sessions_config": "config/sessions.json",
+  "backtest_config": "config/backtest.json",
+  "timezone": "Asia/Dubai"
+}

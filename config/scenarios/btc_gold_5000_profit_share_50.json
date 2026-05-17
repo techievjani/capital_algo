@@ -1,0 +1,10 @@
+{
+  "scenario_id": "btc_gold_5000_profit_share_50",
+  "description": "BTC+Gold dynamic 1.5% risk scenario with no fixed withdrawal. Withdraw 50% of positive monthly realized profit at month end and keep the remainder compounding.",
+  "starting_balance": 5000.0,
+  "portfolio": ["BTCUSD", "GOLD"],
+  "position_sizing_mode": "dynamic",
+  "account_risk_per_trade_pct": 1.5,
+  "withdrawal_policy": "month_end_positive_profit_share",
+  "monthly_profit_withdrawal_pct": 50.0
+}

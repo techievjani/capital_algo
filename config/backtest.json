@@ -1,0 +1,15 @@
+{
+  "starting_balance": 5000.0,
+  "account_currency": "USD",
+  "default_symbol": "US100",
+  "default_timeframe": "MINUTE",
+  "spread_points": 0.0,
+  "slippage_points": 0.0,
+  "commission_per_trade": 0.0,
+  "trailing_stop": {
+    "enabled": false,
+    "activation_r": 0.5,
+    "distance_r": 0.5
+  },
+  "report_directory": "reports"
+}

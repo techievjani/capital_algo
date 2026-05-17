@@ -1,0 +1,19 @@
+{
+  "scenario_id": "btc_gold_5000_monthly_1000",
+  "description": "Research scenario for 5000 USD initial capital, 1000 USD monthly withdrawal target, BTC and Gold strategies, dynamic and fixed sizing comparisons.",
+  "starting_balance": 5000.0,
+  "withdrawal_target": 1000.0,
+  "withdrawal_frequency": "month_end",
+  "candidate_symbols": ["BTCUSD", "GOLD"],
+  "dynamic_risk_per_trade_pct_candidates": [0.5, 1.0, 1.5, 2.0, 3.0],
+  "fixed_size_candidates": {
+    "BTCUSD": [0.25, 0.5, 0.75, 1.0],
+    "GOLD": [2.5, 5.0, 7.5, 10.0]
+  },
+  "recommended": {
+    "portfolio": ["BTCUSD", "GOLD"],
+    "position_sizing_mode": "dynamic",
+    "account_risk_per_trade_pct": 1.5,
+    "withdrawal_policy": "forced_1000_monthly"
+  }
+}

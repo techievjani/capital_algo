@@ -1,0 +1,65 @@
+{
+  "daily_trade_counts": {
+    "BTCUSD:2026-05-17": 2,
+    "GLOBAL:2026-05-17": 2
+  },
+  "last_processed_candle": {
+    "btc_gold_dynamic_1_5:BTCUSD": "2026-05-17T10:14:00+00:00"
+  },
+  "last_signal_candle": {
+    "btc_gold_dynamic_1_5:BTCUSD": "2026-05-17T10:14:00+00:00"
+  },
+  "metadata": {
+    "last_reconciled_at": "2026-05-17T10:15:49.501088+00:00",
+    "notifications": {
+      "last_heartbeat_at": "2026-05-17T10:15:51.331297+00:00",
+      "sent_event_ids": [
+        "open:SIM-1",
+        "closed:BTCUSD:2026-05-17T10:15:42.284026+00:00"
+      ],
+      "startup_sent": true
+    }
+  },
+  "open_positions": {
+    "BTCUSD:78420.45:1.299183370452933": {
+      "average_price": 78420.45,
+      "broker_position_id": null,
+      "metadata": {},
+      "reconciled_at": "2026-05-17T10:15:49.501087+00:00",
+      "size": 1.299183370452933,
+      "symbol": "BTCUSD",
+      "unrealized_pnl": 0.0
+    }
+  },
+  "order_events": [
+    {
+      "action": "BUY",
+      "broker_order_id": "SIM-1",
+      "candle_time": "2026-05-17T10:13:00+00:00",
+      "entry_price": 78330.15,
+      "event": "filled",
+      "group": "btc_gold_dynamic_1_5",
+      "size": 1.4904187366929362,
+      "stop_loss": 78279.82857142857,
+      "strategy_kind": "asset_hybrid",
+      "symbol": "BTCUSD",
+      "take_profit": 78481.11428571427,
+      "timestamp_utc": "2026-05-17T10:14:35.686584+00:00"
+    },
+    {
+      "action": "BUY",
+      "broker_order_id": "SIM-1",
+      "candle_time": "2026-05-17T10:14:00+00:00",
+      "entry_price": 78420.45,
+      "event": "filled",
+      "group": "btc_gold_dynamic_1_5",
+      "size": 1.299183370452933,
+      "stop_loss": 78362.72142857143,
+      "strategy_kind": "asset_hybrid",
+      "symbol": "BTCUSD",
+      "take_profit": 78593.6357142857,
+      "timestamp_utc": "2026-05-17T10:15:49.501079+00:00"
+    }
+  ],
+  "pending_orders": {}
+}

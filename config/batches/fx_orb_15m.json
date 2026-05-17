@@ -1,0 +1,62 @@
+{
+  "batch_id": "fx_orb_15m_major_sessions",
+  "symbols": [
+    "EURUSD",
+    "GBPUSD",
+    "USDJPY",
+    "USDCHF",
+    "AUDUSD",
+    "USDCAD",
+    "NZDUSD",
+    "EURJPY",
+    "GBPJPY",
+    "EURGBP"
+  ],
+  "sessions": [
+    "tokyo_fx",
+    "london_fx",
+    "new_york_fx"
+  ],
+  "timeframe": "MINUTE",
+  "target_r_variants": [1.0, 1.5, 2.0],
+  "orb": {
+    "opening_range_minutes": 15,
+    "trade_direction": "both",
+    "entry_buffer_points": 0,
+    "stop_loss_mode": "opposite_range",
+    "atr_period": 14,
+    "atr_stop_multiplier": 1.0,
+    "ema_period": 20,
+    "use_vwap_filter": true,
+    "use_ema_filter": true,
+    "allow_missing_trend_filter": true,
+    "max_spread_points_by_symbol": {
+      "EURUSD": 0.0003,
+      "GBPUSD": 0.0004,
+      "USDJPY": 0.03,
+      "USDCHF": 0.0004,
+      "AUDUSD": 0.0004,
+      "USDCAD": 0.0005,
+      "NZDUSD": 0.0005,
+      "EURJPY": 0.04,
+      "GBPJPY": 0.05,
+      "EURGBP": 0.0004
+    },
+    "require_spread_data": false,
+    "max_opening_range_points_by_symbol": {
+      "EURUSD": 0.0030,
+      "GBPUSD": 0.0040,
+      "USDJPY": 0.30,
+      "USDCHF": 0.0030,
+      "AUDUSD": 0.0030,
+      "USDCAD": 0.0040,
+      "NZDUSD": 0.0030,
+      "EURJPY": 0.35,
+      "GBPJPY": 0.45,
+      "EURGBP": 0.0025
+    },
+    "take_profit_r_multiple": 2.0,
+    "max_trades_per_session": 2,
+    "close_at_session_end": true
+  }
+}

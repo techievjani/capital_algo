@@ -1,0 +1,29 @@
+{
+  "scenario_id": "btc_2000_monthly_withdrawal",
+  "description": "BTCUSD auto-positioning scenarios with 2000 USD starting capital and 500 USD monthly withdrawal target.",
+  "strategy_config": "config/strategies/btc_breakout_auto_positioning.json",
+  "symbol": "BTCUSD",
+  "starting_balance": 2000.0,
+  "account_currency": "USD",
+  "risk_per_trade_pct": 0.5,
+  "withdrawal_target": 500.0,
+  "withdrawal_frequency": "month_end",
+  "scenarios": [
+    {
+      "name": "no_withdrawal",
+      "withdrawal_policy": "none"
+    },
+    {
+      "name": "forced_500_monthly",
+      "withdrawal_policy": "fixed_if_cash_available"
+    },
+    {
+      "name": "profit_only_up_to_500",
+      "withdrawal_policy": "profit_only"
+    },
+    {
+      "name": "full_500_if_balance_above_2000",
+      "withdrawal_policy": "full_target_with_starting_balance_floor"
+    }
+  ]
+}

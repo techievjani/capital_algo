@@ -1,0 +1,1673 @@
+{
+  "config": {
+    "backtest": {
+      "account_currency": "USD",
+      "commission_per_trade": 0.0,
+      "default_symbol": "US100",
+      "default_timeframe": "MINUTE",
+      "report_directory": "reports",
+      "slippage_points": 0.0,
+      "spread_points": 0.0,
+      "starting_balance": 10000.0,
+      "trailing_stop": {
+        "activation_r": 0.5,
+        "distance_r": 0.5,
+        "enabled": false
+      }
+    },
+    "data": {
+      "derived_timeframes": [
+        "MINUTE_5"
+      ],
+      "end_utc": "2026-05-17T00:00:00Z",
+      "provider": "capital",
+      "source": "/Users/vishaljani/Documents/CapitalAlgo/data/market.sqlite",
+      "start_utc": "2026-04-11T00:00:00Z",
+      "timeframe": "MINUTE"
+    },
+    "risk": {
+      "account_risk_per_trade_pct": 0.5,
+      "allow_live_trading": false,
+      "max_daily_loss_pct": 2.0,
+      "max_open_positions": 2,
+      "max_trades_per_day": 3
+    },
+    "strategy": {
+      "atr_period": 14,
+      "description": "Hybrid asset strategy: BTCUSD uses 5-minute rolling-range breakout; GOLD uses 5-minute ATR stretch mean reversion.",
+      "ema_period": 100,
+      "history_bars": 280,
+      "overbought_rsi": 70.0,
+      "oversold_rsi": 30.0,
+      "rsi_period": 14,
+      "strategy_id": "btc_breakout_gold_mean_reversion_v1",
+      "symbols": {
+        "BTCUSD": {
+          "atr_period": 14,
+          "atr_stop_mult": 1.0,
+          "ema_period": 250,
+          "entry_hours_utc": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "lookback_bars": 24,
+          "max_hold_bars": 48,
+          "max_trades_per_day": 2,
+          "strategy_type": "breakout",
+          "target_r": 3.0
+        },
+        "GOLD": {
+          "atr_stop_mult": 1.5,
+          "entry_hours_utc": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "max_hold_bars": 48,
+          "strategy_type": "mean_reversion",
+          "target_r": 0.8,
+          "z_score": 2.5
+        }
+      },
+      "timeframe": "MINUTE_5"
+    }
+  },
+  "generated_at": "2026-05-17T08:39:26.986798+00:00",
+  "metrics": {
+    "average_loss": -52.04604609774266,
+    "average_win": 154.46220357045107,
+    "best_trade": 161.30390604151074,
+    "ending_balance": 10693.450016190083,
+    "evaluated_bars": 9613,
+    "generated_signals": 331,
+    "net_profit": 693.4500161900833,
+    "profit_factor": 1.2719138572055748,
+    "rejected_evaluations": 9282,
+    "risk_rejected_signals": 261,
+    "starting_balance": 10000.0,
+    "total_return_pct": 6.934500161900832,
+    "trade_count": 70,
+    "win_rate_pct": 30.0,
+    "worst_trade": -54.57448821071444
+  },
+  "rejected_signals": [
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-12T10:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-12T10:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-12T12:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-12T12:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-12T13:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-12T13:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-12T14:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-12T14:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-12T14:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-13T12:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-13T12:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-13T13:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-13T13:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-13T14:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-13T14:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-13T14:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-14T13:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-14T13:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-14T13:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-14T13:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-14T13:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-14T13:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-14T14:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-15T10:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-15T10:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-15T12:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-15T13:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-15T13:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-15T15:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-16T10:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-16T12:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-16T13:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-16T13:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-16T13:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T08:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T08:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T09:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T09:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T12:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T12:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T12:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T13:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T13:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T13:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T13:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T14:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T14:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T14:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T14:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-17T16:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-18T09:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-18T10:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-18T10:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-18T10:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-18T11:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-18T11:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-18T11:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-18T11:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-19T11:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-19T12:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-19T12:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-19T12:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-19T13:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-19T13:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-19T16:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-19T16:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-20T09:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-20T10:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-20T10:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-20T10:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-20T12:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-20T12:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-20T15:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-21T08:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-21T10:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-21T12:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-21T14:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-21T14:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-22T12:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-22T13:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-22T14:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-22T14:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-22T14:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-22T15:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-22T16:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-23T10:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-23T13:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-23T14:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-23T15:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-23T15:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-24T11:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-24T11:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-24T11:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-24T13:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-24T14:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-24T14:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-24T15:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-25T10:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-25T10:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-25T12:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-25T12:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-25T12:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-25T15:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-25T15:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-25T16:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-26T11:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-26T11:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-26T14:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-27T15:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-27T15:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-27T15:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-28T11:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-28T11:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-28T11:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-28T11:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-28T11:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-28T13:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-28T14:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-28T14:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-28T14:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-29T10:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-29T13:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-29T13:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-29T15:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-29T15:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-29T15:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-29T15:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-04-30T11:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-30T12:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-04-30T13:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-01T11:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-01T12:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-01T12:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-01T12:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-01T13:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-01T13:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-01T13:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-01T13:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-01T13:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-02T13:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-02T13:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-02T15:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-02T16:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-03T09:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-03T11:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-03T11:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-03T12:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-03T15:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-04T10:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-04T14:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-04T14:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-04T14:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-04T14:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-04T14:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-05T12:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-05T12:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-05T12:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-05T13:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-05T13:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T08:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T09:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T09:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T10:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T10:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T10:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T11:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T11:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T11:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T11:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T14:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-06T14:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T09:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T09:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T09:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T10:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T10:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T13:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T13:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T13:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T14:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T14:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T15:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-07T15:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-08T13:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-08T13:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-08T13:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-08T13:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-09T13:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-09T15:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-09T15:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-09T16:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-09T16:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-10T13:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-10T13:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-10T15:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-10T15:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-10T15:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-10T16:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T10:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T10:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T12:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T13:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T13:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T14:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T14:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T15:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T15:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T16:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T16:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T16:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T16:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-11T16:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-12T11:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-12T13:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-12T15:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-12T15:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-12T16:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T11:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T11:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T11:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T11:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T12:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T12:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T12:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T13:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T15:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T15:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T15:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T15:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T15:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T15:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-13T16:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T10:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T11:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T12:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T12:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T12:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T13:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T13:20:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T14:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T14:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T14:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T14:45:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T14:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T14:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T15:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T15:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T15:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T16:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T16:10:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_RANGE_BREAKOUT",
+      "timestamp": "2026-05-14T16:55:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-15T12:50:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-15T13:00:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-15T13:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-15T13:30:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-15T13:35:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-15T13:40:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-16T09:15:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-16T10:05:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-16T10:25:00+00:00"
+    },
+    {
+      "instrument": "BTCUSD",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_RANGE_BREAKOUT",
+      "timestamp": "2026-05-16T13:10:00+00:00"
+    }
+  ]
+}

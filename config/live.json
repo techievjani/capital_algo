@@ -1,0 +1,26 @@
+{
+  "mode": "paper",
+  "symbols": ["GBPJPY", "EURJPY", "EURUSD"],
+  "strategy_config": "config/strategies/forex_pullback_london_open.json",
+  "poll_seconds": 20,
+  "lookback_minutes": 1500,
+  "state_path": "runtime/live_state.json",
+  "log_directory": "runtime/logs",
+  "order_execution": {
+    "enabled": false,
+    "allow_live_orders": false
+  },
+  "require_spread": true,
+  "shutdown": {
+    "on_stop": "stop_new_entries"
+  },
+  "paper_account": {
+    "starting_balance": 10000.0,
+    "currency": "USD"
+  },
+  "trailing_stop": {
+    "enabled": true,
+    "activation_r": 0.5,
+    "distance_r": 0.5
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "environment": "demo",
+  "default_timeframe": "MINUTE",
+  "max_points_per_request": 1000
+}
+

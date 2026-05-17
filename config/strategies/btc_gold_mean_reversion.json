@@ -1,0 +1,27 @@
+{
+  "strategy_id": "btc_gold_mean_reversion_v1",
+  "description": "5-minute ATR stretch mean reversion tuned on six months of cached Capital.com BTCUSD and GOLD data.",
+  "timeframe": "MINUTE_5",
+  "history_bars": 220,
+  "ema_period": 100,
+  "atr_period": 14,
+  "rsi_period": 14,
+  "oversold_rsi": 30.0,
+  "overbought_rsi": 70.0,
+  "symbols": {
+    "BTCUSD": {
+      "z_score": 2.5,
+      "target_r": 1.5,
+      "atr_stop_mult": 1.0,
+      "max_hold_bars": 24,
+      "entry_hours_utc": [20, 21, 22, 23]
+    },
+    "GOLD": {
+      "z_score": 2.5,
+      "target_r": 0.8,
+      "atr_stop_mult": 1.5,
+      "max_hold_bars": 48,
+      "entry_hours_utc": [13, 14, 15, 16, 17, 18, 19]
+    }
+  }
+}

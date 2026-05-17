@@ -1,0 +1,5 @@
+config,symbol,strategy_type,max_trades_per_day,trades,net_profit,win_rate_pct,profit_factor,worst_trade
+Current BTC 2 / Gold 3,BTCUSD,breakout,2,360,20156.6,31.11,1.3468,-482.45
+Current BTC 2 / Gold 3,GOLD,mean_reversion,3,311,3290.3,59.16,1.1375,-214.84
+Both 4/day,BTCUSD,breakout,4,691,29816.78,29.38,1.1958,-640.38
+Both 4/day,GOLD,mean_reversion,4,374,4963.72,59.89,1.1702,-232.08

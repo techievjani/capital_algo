@@ -1,0 +1,5 @@
+scenario,ending_balance,gross_trading_profit,withdrawn_total,net_account_change_after_withdrawals,trade_count,win_rate_pct,profit_factor,max_drawdown,months_paid,withdrawal_events
+no_withdrawal,2977.76,977.76,0,977.76,360,31.11,1.3413,-161.16,0,0
+forced_500_monthly,0.0,104.62,2104.62,104.62,268,30.6,1.1147,-2000.0,4,5
+profit_only_up_to_500,2000.0,852.97,852.97,852.97,360,31.11,1.3351,-440.27,0,5
+full_500_if_balance_above_2000,2404.99,904.99,500.0,904.99,360,31.11,1.3359,-520.94,1,1

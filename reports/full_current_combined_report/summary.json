@@ -1,0 +1,82 @@
+{
+  "best_trade": 362.978571,
+  "by_month": {
+    "2025-11": -350.443571,
+    "2025-12": 1326.434286,
+    "2026-01": 81.428393,
+    "2026-02": -184.260107,
+    "2026-03": 1817.889839,
+    "2026-04": 1403.92312,
+    "2026-05": 171.078491
+  },
+  "by_run": {
+    "full_current_btc_gold_fixed": 4261.183214,
+    "full_current_fx_fixed_1": 4.867235
+  },
+  "max_drawdown": -1216.261678,
+  "net_profit": 4266.050449,
+  "symbols": {
+    "BTCUSD": {
+      "best_trade": 362.978571,
+      "net_profit": 3538.439286,
+      "profit_factor": 1.2834,
+      "size_values": [
+        0.5
+      ],
+      "symbol": "BTCUSD",
+      "trade_count": 360,
+      "win_rate_pct": 31.11,
+      "worst_trade": -203.405357
+    },
+    "EURJPY": {
+      "best_trade": 0.523,
+      "net_profit": 1.58425,
+      "profit_factor": 2.1422,
+      "size_values": [
+        1.0
+      ],
+      "symbol": "EURJPY",
+      "trade_count": 37,
+      "win_rate_pct": 78.38,
+      "worst_trade": -0.2445
+    },
+    "EURUSD": {
+      "best_trade": 0.00152,
+      "net_profit": 0.003235,
+      "profit_factor": 1.4342,
+      "size_values": [
+        1.0
+      ],
+      "symbol": "EURUSD",
+      "trade_count": 31,
+      "win_rate_pct": 80.65,
+      "worst_trade": -0.00254
+    },
+    "GBPJPY": {
+      "best_trade": 0.562,
+      "net_profit": 3.27975,
+      "profit_factor": 3.2816,
+      "size_values": [
+        1.0
+      ],
+      "symbol": "GBPJPY",
+      "trade_count": 40,
+      "win_rate_pct": 85.0,
+      "worst_trade": -0.4745
+    },
+    "GOLD": {
+      "best_trade": 202.116429,
+      "net_profit": 722.743929,
+      "profit_factor": 1.0828,
+      "size_values": [
+        5.0
+      ],
+      "symbol": "GOLD",
+      "trade_count": 311,
+      "win_rate_pct": 59.16,
+      "worst_trade": -274.191964
+    }
+  },
+  "trade_count": 779,
+  "worst_trade": -274.191964
+}

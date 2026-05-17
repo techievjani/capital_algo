@@ -1,0 +1,119 @@
+{
+  "data": {
+    "bars_5m": 51137,
+    "end_utc": "2026-05-17T00:00:00+00:00",
+    "start_utc": "2025-11-17T00:00:00+00:00",
+    "symbol": "BTCUSD"
+  },
+  "scenario_config": {
+    "account_currency": "USD",
+    "description": "BTCUSD auto-positioning scenarios with 2000 USD starting capital and 500 USD monthly withdrawal target.",
+    "risk_per_trade_pct": 0.5,
+    "scenario_id": "btc_2000_monthly_withdrawal",
+    "scenarios": [
+      {
+        "name": "no_withdrawal",
+        "withdrawal_policy": "none"
+      },
+      {
+        "name": "forced_500_monthly",
+        "withdrawal_policy": "fixed_if_cash_available"
+      },
+      {
+        "name": "profit_only_up_to_500",
+        "withdrawal_policy": "profit_only"
+      },
+      {
+        "name": "full_500_if_balance_above_2000",
+        "withdrawal_policy": "full_target_with_starting_balance_floor"
+      }
+    ],
+    "starting_balance": 2000.0,
+    "strategy_config": "config/strategies/btc_breakout_auto_positioning.json",
+    "symbol": "BTCUSD",
+    "withdrawal_frequency": "month_end",
+    "withdrawal_target": 500.0
+  },
+  "scenarios": {
+    "forced_500_monthly": {
+      "ending_balance": 0.0,
+      "gross_trading_profit": 104.62,
+      "max_drawdown": -2000.0,
+      "months_paid": 4,
+      "net_account_change_after_withdrawals": 104.62,
+      "profit_factor": 1.1147,
+      "trade_count": 268,
+      "win_rate_pct": 30.6,
+      "withdrawal_events": 5,
+      "withdrawn_total": 2104.62
+    },
+    "full_500_if_balance_above_2000": {
+      "ending_balance": 2404.99,
+      "gross_trading_profit": 904.99,
+      "max_drawdown": -520.94,
+      "months_paid": 1,
+      "net_account_change_after_withdrawals": 904.99,
+      "profit_factor": 1.3359,
+      "trade_count": 360,
+      "win_rate_pct": 31.11,
+      "withdrawal_events": 1,
+      "withdrawn_total": 500.0
+    },
+    "no_withdrawal": {
+      "ending_balance": 2977.76,
+      "gross_trading_profit": 977.76,
+      "max_drawdown": -161.16,
+      "months_paid": 0,
+      "net_account_change_after_withdrawals": 977.76,
+      "profit_factor": 1.3413,
+      "trade_count": 360,
+      "win_rate_pct": 31.11,
+      "withdrawal_events": 0,
+      "withdrawn_total": 0
+    },
+    "profit_only_up_to_500": {
+      "ending_balance": 2000.0,
+      "gross_trading_profit": 852.97,
+      "max_drawdown": -440.27,
+      "months_paid": 0,
+      "net_account_change_after_withdrawals": 852.97,
+      "profit_factor": 1.3351,
+      "trade_count": 360,
+      "win_rate_pct": 31.11,
+      "withdrawal_events": 5,
+      "withdrawn_total": 852.97
+    }
+  },
+  "strategy_config": {
+    "atr_period": 14,
+    "description": "BTCUSD-only 5-minute breakout strategy using automatic risk-percent position sizing.",
+    "ema_period": 100,
+    "history_bars": 280,
+    "strategy_id": "btc_breakout_auto_positioning_v1",
+    "symbols": {
+      "BTCUSD": {
+        "atr_period": 14,
+        "atr_stop_mult": 1.0,
+        "ema_period": 250,
+        "entry_hours_utc": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "lookback_bars": 24,
+        "max_hold_bars": 48,
+        "max_trades_per_day": 2,
+        "strategy_type": "breakout",
+        "target_r": 3.0
+      }
+    },
+    "timeframe": "MINUTE_5"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "generated_at": "2026-05-17T09:32:33.286135Z",
+  "raw_backtest_summary": [
+    {
+      "config": "Current BTC 2 / Gold 3",
+      "starting_balance": 10000.0,
+      "ending_balance": 33446.9,
+      "net_profit": 23446.9,
+      "max_drawdown": -3829.44,
+      "trade_count": 671,
+      "win_rate_pct": 44.11,
+      "profit_factor": 1.2857,
+      "wins": 296,
+      "losses": 375
+    },
+    {
+      "config": "Both 4/day",
+      "starting_balance": 10000.0,
+      "ending_balance": 44780.5,
+      "net_profit": 34780.5,
+      "max_drawdown": -6515.63,
+      "trade_count": 1065,
+      "win_rate_pct": 40.09,
+      "profit_factor": 1.1917,
+      "wins": 427,
+      "losses": 638
+    }
+  ],
+  "per_symbol_summary": [
+    {
+      "config": "Current BTC 2 / Gold 3",
+      "symbol": "BTCUSD",
+      "strategy_type": "breakout",
+      "max_trades_per_day": 2,
+      "trades": 360,
+      "net_profit": 20156.6,
+      "win_rate_pct": 31.11,
+      "profit_factor": 1.3468,
+      "worst_trade": -482.45
+    },
+    {
+      "config": "Current BTC 2 / Gold 3",
+      "symbol": "GOLD",
+      "strategy_type": "mean_reversion",
+      "max_trades_per_day": 3,
+      "trades": 311,
+      "net_profit": 3290.3,
+      "win_rate_pct": 59.16,
+      "profit_factor": 1.1375,
+      "worst_trade": -214.84
+    },
+    {
+      "config": "Both 4/day",
+      "symbol": "BTCUSD",
+      "strategy_type": "breakout",
+      "max_trades_per_day": 4,
+      "trades": 691,
+      "net_profit": 29816.78,
+      "win_rate_pct": 29.38,
+      "profit_factor": 1.1958,
+      "worst_trade": -640.38
+    },
+    {
+      "config": "Both 4/day",
+      "symbol": "GOLD",
+      "strategy_type": "mean_reversion",
+      "max_trades_per_day": 4,
+      "trades": 374,
+      "net_profit": 4963.72,
+      "win_rate_pct": 59.89,
+      "profit_factor": 1.1702,
+      "worst_trade": -232.08
+    }
+  ],
+  "scenario_summary": [
+    {
+      "config": "Current BTC 2 / Gold 3",
+      "policy": "Withdraw 50% monthly profit",
+      "ending_balance": 11275.49,
+      "withdrawn_total": 6400.63,
+      "trading_profit": 12676.11,
+      "max_drawdown": -3833.62,
+      "trades": 674,
+      "profit_factor": 1.3188,
+      "wiped_out": "No"
+    },
+    {
+      "config": "Both 4/day",
+      "policy": "Withdraw 50% monthly profit",
+      "ending_balance": 13270.28,
+      "withdrawn_total": 8270.28,
+      "trading_profit": 16540.56,
+      "max_drawdown": -3807.28,
+      "trades": 1071,
+      "profit_factor": 1.22,
+      "wiped_out": "No"
+    },
+    {
+      "config": "BTC 4 / Gold 3",
+      "policy": "Withdraw 50% monthly profit",
+      "ending_balance": 12389.98,
+      "withdrawn_total": 7389.98,
+      "trading_profit": 14779.95,
+      "max_drawdown": -3463.28,
+      "trades": 1006,
+      "profit_factor": 1.2,
+      "wiped_out": "No"
+    },
+    {
+      "config": "BTC 2 / Gold 4",
+      "policy": "Withdraw 50% monthly profit",
+      "ending_balance": 12130.76,
+      "withdrawn_total": 7154.8,
+      "trading_profit": 14285.56,
+      "max_drawdown": -4061.28,
+      "trades": 739,
+      "profit_factor": 1.33,
+      "wiped_out": "No"
+    },
+    {
+      "config": "Current BTC 2 / Gold 3",
+      "policy": "Forced $1000/month",
+      "ending_balance": 2339.79,
+      "withdrawn_total": 7000.0,
+      "trading_profit": 4339.79,
+      "max_drawdown": -3413.08,
+      "trades": 674,
+      "profit_factor": 1.22,
+      "wiped_out": "No"
+    },
+    {
+      "config": "Both 4/day",
+      "policy": "Forced $1000/month",
+      "ending_balance": 6975.12,
+      "withdrawn_total": 7000.0,
+      "trading_profit": 8975.12,
+      "max_drawdown": -3333.51,
+      "trades": 1071,
+      "profit_factor": 1.19,
+      "wiped_out": "No"
+    },
+    {
+      "config": "BTC 4 / Gold 3",
+      "policy": "Forced $1000/month",
+      "ending_balance": 6042.79,
+      "withdrawn_total": 7000.0,
+      "trading_profit": 8042.79,
+      "max_drawdown": -3284.53,
+      "trades": 1006,
+      "profit_factor": 1.18,
+      "wiped_out": "No"
+    },
+    {
+      "config": "BTC 2 / Gold 4",
+      "policy": "Forced $1000/month",
+      "ending_balance": 2867.13,
+      "withdrawn_total": 7000.0,
+      "trading_profit": 4867.13,
+      "max_drawdown": -3351.6,
+      "trades": 739,
+      "profit_factor": 1.23,
+      "wiped_out": "No"
+    }
+  ],
+  "analysis": {
+    "recommendation": "BTC 4 / Gold 3 is the best compromise to forward-test; both 4/day has highest profit but lower trade quality and more execution load.",
+    "note": "Scenario rows use the 5000 USD decision frame from the prior withdrawal simulations; raw rows are fresh cached backtests generated for this request."
+  }
+}

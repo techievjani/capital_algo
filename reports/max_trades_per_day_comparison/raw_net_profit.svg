@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="360" viewBox="0 0 920 360">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="78" y="28" font-family="Arial" font-size="18" font-weight="700" fill="#111827">Raw 10k Backtest Net Profit</text>
+<line x1="78" x2="896" y1="268.0" y2="268.0" stroke="#94a3b8" stroke-width="1"/>
+<rect x="163.9" y="119.7" width="237.2" height="148.3" rx="4" fill="#2563eb"/>
+<text x="282.5" y="113.7" text-anchor="middle" font-family="Arial" font-size="12" fill="#111827">23,447</text>
+<text transform="translate(282.5,296) rotate(-28)" text-anchor="end" font-family="Arial" font-size="11" fill="#374151">Current BTC 2/Gold 3</text>
+<rect x="572.9" y="48.0" width="237.2" height="220.0" rx="4" fill="#059669"/>
+<text x="691.5" y="42.0" text-anchor="middle" font-family="Arial" font-size="12" fill="#111827">34,780</text>
+<text transform="translate(691.5,296) rotate(-28)" text-anchor="end" font-family="Arial" font-size="11" fill="#374151">Both 4/day</text>
+</svg>

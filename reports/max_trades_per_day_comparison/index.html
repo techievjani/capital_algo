@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Max Trades Per Day Comparison</title>
+<style>
+:root { color-scheme: light; --ink:#111827; --muted:#64748b; --line:#d8dee9; --bg:#f8fafc; --panel:#ffffff; --blue:#2563eb; }
+body { margin:0; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background:var(--bg); color:var(--ink); }
+header { padding:28px 34px 18px; background:#fff; border-bottom:1px solid var(--line); }
+h1 { margin:0 0 8px; font-size:28px; letter-spacing:0; }
+main { padding:24px 34px 42px; max-width:1180px; margin:auto; }
+section { margin:0 0 28px; }
+.grid { display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap:12px; }
+.metric { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; }
+.metric b { display:block; font-size:22px; margin-bottom:5px; }
+.metric span { color:var(--muted); font-size:13px; }
+.chart-grid { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+.chart { background:#fff; border:1px solid var(--line); border-radius:8px; padding:12px; overflow:auto; }
+.chart img { width:100%; min-width:520px; display:block; }
+table { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+th, td { padding:10px 12px; border-bottom:1px solid var(--line); text-align:right; font-size:13px; white-space:nowrap; }
+th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) { text-align:left; }
+th { background:#eef2f7; font-weight:700; color:#243244; }
+.note { background:#fff; border-left:4px solid var(--blue); padding:14px 16px; color:#243244; }
+@media (max-width: 850px) { .grid, .chart-grid { grid-template-columns:1fr; } main, header { padding-left:16px; padding-right:16px; } }
+</style>
+</head>
+<body>
+<header>
+<h1>Max Trades Per Day Comparison</h1>
+<div>Fresh cached backtests: current BTC 2 / Gold 3 versus 4 trades per day. Generated 2026-05-17T09:32:33.286135Z.</div>
+</header>
+<main>
+<section class="grid">
+  <div class="metric"><b>$34,780.50</b><span>Raw net profit with both 4/day</span></div>
+  <div class="metric"><b>1,065</b><span>Raw trades with both 4/day</span></div>
+  <div class="metric"><b>$13,270.28</b><span>5k ending balance, both 4/day, 50% profit withdrawal</span></div>
+  <div class="metric"><b>$12,389.98</b><span>5k ending balance, BTC 4 / Gold 3 compromise</span></div>
+</section>
+<section class="note"><b>Readout:</b> 4 trades/day increases raw profit, but trade quality weakens: lower win rate and profit factor, plus roughly 59% more trades. For live demo, BTC 4 / Gold 3 is the better compromise than both symbols at 4/day.</section>
+<section class="chart-grid">
+  <div class="chart"><img src="raw_net_profit.svg" alt="Raw net profit" /></div>
+  <div class="chart"><img src="raw_drawdown.svg" alt="Raw drawdown" /></div>
+  <div class="chart"><img src="profit_share_ending.svg" alt="Profit share ending balance" /></div>
+  <div class="chart"><img src="scenario_drawdown.svg" alt="Scenario drawdown" /></div>
+  <div class="chart"><img src="profit_share_withdrawn.svg" alt="Withdrawn total" /></div>
+  <div class="chart"><img src="forced_ending.svg" alt="Forced withdrawal ending balance" /></div>
+</section>
+<section><h2>Fresh Raw Backtest</h2><table><thead><tr><th>Config</th><th>Starting Balance</th><th>Ending Balance</th><th>Net Profit</th><th>Max Drawdown</th><th>Trade Count</th><th>Win Rate Pct</th><th>Profit Factor</th><th>Wins</th><th>Losses</th></tr></thead><tbody><tr><td>Current BTC 2 / Gold 3</td><td>10000.0</td><td>33446.9</td><td>23446.9</td><td>-3829.44</td><td>671</td><td>44.11</td><td>1.2857</td><td>296</td><td>375</td></tr><tr><td>Both 4/day</td><td>10000.0</td><td>44780.5</td><td>34780.5</td><td>-6515.63</td><td>1065</td><td>40.09</td><td>1.1917</td><td>427</td><td>638</td></tr></tbody></table></section>
+<section><h2>Per Symbol</h2><table><thead><tr><th>Config</th><th>Symbol</th><th>Strategy Type</th><th>Max Trades Per Day</th><th>Trades</th><th>Net Profit</th><th>Win Rate Pct</th><th>Profit Factor</th><th>Worst Trade</th></tr></thead><tbody><tr><td>Current BTC 2 / Gold 3</td><td>BTCUSD</td><td>breakout</td><td>2</td><td>360</td><td>20156.6</td><td>31.11</td><td>1.3468</td><td>-482.45</td></tr><tr><td>Current BTC 2 / Gold 3</td><td>GOLD</td><td>mean_reversion</td><td>3</td><td>311</td><td>3290.3</td><td>59.16</td><td>1.1375</td><td>-214.84</td></tr><tr><td>Both 4/day</td><td>BTCUSD</td><td>breakout</td><td>4</td><td>691</td><td>29816.78</td><td>29.38</td><td>1.1958</td><td>-640.38</td></tr><tr><td>Both 4/day</td><td>GOLD</td><td>mean_reversion</td><td>4</td><td>374</td><td>4963.72</td><td>59.89</td><td>1.1702</td><td>-232.08</td></tr></tbody></table></section>
+<section><h2>5k Withdrawal Scenarios</h2><table><thead><tr><th>Config</th><th>Policy</th><th>Ending Balance</th><th>Withdrawn Total</th><th>Trading Profit</th><th>Max Drawdown</th><th>Trades</th><th>Profit Factor</th><th>Wiped Out</th></tr></thead><tbody><tr><td>Current BTC 2 / Gold 3</td><td>Withdraw 50% monthly profit</td><td>11275.49</td><td>6400.63</td><td>12676.11</td><td>-3833.62</td><td>674</td><td>1.3188</td><td>No</td></tr><tr><td>Both 4/day</td><td>Withdraw 50% monthly profit</td><td>13270.28</td><td>8270.28</td><td>16540.56</td><td>-3807.28</td><td>1071</td><td>1.22</td><td>No</td></tr><tr><td>BTC 4 / Gold 3</td><td>Withdraw 50% monthly profit</td><td>12389.98</td><td>7389.98</td><td>14779.95</td><td>-3463.28</td><td>1006</td><td>1.2</td><td>No</td></tr><tr><td>BTC 2 / Gold 4</td><td>Withdraw 50% monthly profit</td><td>12130.76</td><td>7154.8</td><td>14285.56</td><td>-4061.28</td><td>739</td><td>1.33</td><td>No</td></tr><tr><td>Current BTC 2 / Gold 3</td><td>Forced $1000/month</td><td>2339.79</td><td>7000.0</td><td>4339.79</td><td>-3413.08</td><td>674</td><td>1.22</td><td>No</td></tr><tr><td>Both 4/day</td><td>Forced $1000/month</td><td>6975.12</td><td>7000.0</td><td>8975.12</td><td>-3333.51</td><td>1071</td><td>1.19</td><td>No</td></tr><tr><td>BTC 4 / Gold 3</td><td>Forced $1000/month</td><td>6042.79</td><td>7000.0</td><td>8042.79</td><td>-3284.53</td><td>1006</td><td>1.18</td><td>No</td></tr><tr><td>BTC 2 / Gold 4</td><td>Forced $1000/month</td><td>2867.13</td><td>7000.0</td><td>4867.13</td><td>-3351.6</td><td>739</td><td>1.23</td><td>No</td></tr></tbody></table></section>
+</main>
+</body>
+</html>

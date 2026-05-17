@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420">
+<style>text{font-family:Arial,sans-serif;fill:#1f2937}.grid{stroke:#e5e7eb}.line{fill:none;stroke:#2563eb;stroke-width:2.5}.barpos{fill:#16a34a}.barneg{fill:#dc2626}.muted{fill:#6b7280;font-size:12px}.title{font-size:20px;font-weight:700}.label{font-size:12px}</style>
+<rect width="980" height="420" fill="#fff"/>
+<text class="title" x="24" y="34">Top No-Wipeout Forced Withdrawal Candidates: Ending Balance</text>
+<rect class="barpos" x="103.0" y="216.6" width="63.5" height="90.9"/>
+<text class="label" text-anchor="middle" x="134.8" y="210.6">2,340</text>
+<text class="muted" text-anchor="middle" x="134.8" y="368">BTC + Gold dynamic 1.5</text>
+<rect class="barpos" x="212.5" y="86.5" width="63.5" height="221.0"/>
+<text class="label" text-anchor="middle" x="244.2" y="80.5">5,689</text>
+<text class="muted" text-anchor="middle" x="244.2" y="368">BTC + Gold dynamic 2.0</text>
+<rect class="barpos" x="322.0" y="219.6" width="63.5" height="87.9"/>
+<text class="label" text-anchor="middle" x="353.8" y="213.6">2,264</text>
+<text class="muted" text-anchor="middle" x="353.8" y="368">BTC + Gold fixed {&quot;BTCUSD&quot;: </text>
+<rect class="barpos" x="431.5" y="206.3" width="63.5" height="101.2"/>
+<text class="label" text-anchor="middle" x="463.2" y="200.3">2,606</text>
+<text class="muted" text-anchor="middle" x="463.2" y="368">BTC + Gold fixed {&quot;BTCUSD&quot;: </text>
+<rect class="barpos" x="541.0" y="232.9" width="63.5" height="74.6"/>
+<text class="label" text-anchor="middle" x="572.8" y="226.9">1,921</text>
+<text class="muted" text-anchor="middle" x="572.8" y="368">BTC + Gold fixed {&quot;BTCUSD&quot;: </text>
+<rect class="barpos" x="650.5" y="282.4" width="63.5" height="25.1"/>
+<text class="label" text-anchor="middle" x="682.2" y="276.4">646</text>
+<text class="muted" text-anchor="middle" x="682.2" y="368">BTC + Gold fixed {&quot;BTCUSD&quot;: </text>
+<rect class="barpos" x="760.0" y="269.1" width="63.5" height="38.4"/>
+<text class="label" text-anchor="middle" x="791.8" y="263.1">988</text>
+<text class="muted" text-anchor="middle" x="791.8" y="368">BTC + Gold fixed {&quot;BTCUSD&quot;: </text>
+<rect class="barpos" x="869.5" y="156.7" width="63.5" height="150.8"/>
+<text class="label" text-anchor="middle" x="901.2" y="150.7">3,882</text>
+<text class="muted" text-anchor="middle" x="901.2" y="368">BTC + Gold fixed {&quot;BTCUSD&quot;: </text>
+</svg>

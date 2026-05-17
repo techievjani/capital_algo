@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "bot_token_env": "TELEGRAM_BOT_TOKEN",
+  "chat_id_env": "TELEGRAM_CHAT_ID",
+  "timeout_seconds": 20,
+  "send_heartbeat": true,
+  "heartbeat_minutes": 60,
+  "send_trade_notifications": true,
+  "send_daily_summary": true,
+  "daily_summary_time_utc": "23:59",
+  "max_sent_event_ids": 500
+}

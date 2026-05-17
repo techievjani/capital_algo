@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="430" viewBox="0 0 1100 430">
+<style>text{font-family:Arial,sans-serif;fill:#1f2937}.grid{stroke:#e5e7eb}.line{fill:none;stroke:#2563eb;stroke-width:2.4}.draw{fill:none;stroke:#dc2626;stroke-width:2.4}.barpos{fill:#16a34a}.barneg{fill:#dc2626}.muted{fill:#6b7280;font-size:12px}.title{font-size:20px;font-weight:700}</style>
+<rect width="1100" height="430" fill="#fff"/>
+<text class="title" x="24" y="34">Monthly Profit and 50% Withdrawals</text>
+<line class="grid" x1="80" x2="1072" y1="326.8" y2="326.8"/>
+<rect class="barneg" x="105.5" y="326.8" width="42.5" height="1.8"/>
+<rect class="barneg" x="148.0" y="326.8" width="42.5" height="1.0"/>
+<text class="muted" text-anchor="middle" x="150.9" y="396">2025-11</text>
+<rect class="barpos" x="247.2" y="293.7" width="42.5" height="33.1"/>
+<rect class="barneg" x="289.7" y="310.3" width="42.5" height="16.6"/>
+<text class="muted" text-anchor="middle" x="292.6" y="396">2025-12</text>
+<rect class="barpos" x="388.9" y="318.6" width="42.5" height="8.3"/>
+<rect class="barneg" x="431.5" y="322.7" width="42.5" height="4.1"/>
+<text class="muted" text-anchor="middle" x="434.3" y="396">2026-01</text>
+<rect class="barneg" x="530.7" y="326.8" width="42.5" height="2.5"/>
+<rect class="barneg" x="573.2" y="326.8" width="42.5" height="1.0"/>
+<text class="muted" text-anchor="middle" x="576.0" y="396">2026-02</text>
+<rect class="barpos" x="672.4" y="197.8" width="42.5" height="129.1"/>
+<rect class="barneg" x="714.9" y="262.3" width="42.5" height="64.5"/>
+<text class="muted" text-anchor="middle" x="717.7" y="396">2026-03</text>
+<rect class="barpos" x="814.1" y="90.6" width="42.5" height="236.2"/>
+<rect class="barneg" x="856.6" y="208.7" width="42.5" height="118.1"/>
+<text class="muted" text-anchor="middle" x="859.4" y="396">2026-04</text>
+<rect class="barpos" x="955.8" y="291.8" width="42.5" height="35.0"/>
+<rect class="barneg" x="998.3" y="309.3" width="42.5" height="17.5"/>
+<text class="muted" text-anchor="middle" x="1001.1" y="396">2026-05</text>
+</svg>

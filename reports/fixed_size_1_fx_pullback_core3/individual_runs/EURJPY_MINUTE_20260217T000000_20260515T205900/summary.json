@@ -1,0 +1,190 @@
+{
+  "config": {
+    "backtest": {
+      "account_currency": "USD",
+      "commission_per_trade": 0.0,
+      "default_symbol": "US100",
+      "default_timeframe": "MINUTE",
+      "report_directory": "reports",
+      "slippage_points": 0.0,
+      "spread_points": 0.0,
+      "starting_balance": 10000.0,
+      "trailing_stop": {
+        "activation_r": 0.5,
+        "distance_r": 0.5,
+        "enabled": true
+      }
+    },
+    "data": {
+      "derived_timeframes": [
+        "MINUTE_5",
+        "MINUTE_15"
+      ],
+      "end_utc": "2026-05-17T00:00:00Z",
+      "provider": "capital",
+      "source": "/Users/vishaljani/Documents/CapitalAlgo/data/market.sqlite",
+      "start_utc": "2026-02-17T00:00:00Z",
+      "timeframe": "MINUTE"
+    },
+    "risk": {
+      "account_risk_per_trade_pct": 0.5,
+      "allow_live_trading": false,
+      "max_daily_loss_pct": 2.0,
+      "max_open_positions": 2,
+      "max_trades_per_day": 3
+    },
+    "strategy": {
+      "filters": {
+        "allow_missing_spread": true,
+        "entry_hours_utc": [
+          7
+        ],
+        "max_vwap_crosses": 3,
+        "require_news_data": false,
+        "vwap_chop_lookback_minutes": 15
+      },
+      "fixed_position_sizes": {
+        "EURJPY": 1.0,
+        "EURUSD": 1.0,
+        "GBPJPY": 1.0
+      },
+      "indicators": {
+        "adx_min": 20,
+        "adx_period": 14,
+        "ema_15m": 50,
+        "ema_1m_fast": 9,
+        "ema_1m_slow": 20,
+        "ema_5m": 20
+      },
+      "max_spread": {
+        "EURJPY": 2.5,
+        "EURUSD": 1.2,
+        "GBPJPY": 3.5
+      },
+      "min_impulse_pips": {
+        "EURJPY": 6,
+        "EURUSD": 5,
+        "GBPJPY": 6
+      },
+      "news_blackout": {
+        "enabled": false,
+        "impact": "high",
+        "minutes_after": 15,
+        "minutes_before": 15
+      },
+      "pip_size": {
+        "EURJPY": 0.01,
+        "EURUSD": 0.0001,
+        "GBPJPY": 0.01
+      },
+      "pullback_buffer_pips": {
+        "EURJPY": 2,
+        "EURUSD": 1.5,
+        "GBPJPY": 2
+      },
+      "session": {
+        "enabled": false,
+        "end": "23:59",
+        "start": "00:00"
+      },
+      "stop_buffer_pips": {
+        "EURJPY": 1.5,
+        "EURUSD": 1,
+        "GBPJPY": 1.5
+      },
+      "strategy_id": "forex_pullback_london_open_v1",
+      "symbols": [
+        "GBPJPY",
+        "EURJPY",
+        "EURUSD"
+      ],
+      "target_r": 1.0
+    }
+  },
+  "generated_at": "2026-05-17T08:50:05.838060+00:00",
+  "metrics": {
+    "average_loss": -0.1733749999999894,
+    "average_win": 0.10245689655172406,
+    "best_trade": 0.5229999999999961,
+    "ending_balance": 10001.584249999998,
+    "evaluated_bars": 80249,
+    "generated_signals": 48,
+    "net_profit": 1.5842499999980646,
+    "profit_factor": 2.142213410238053,
+    "rejected_evaluations": 80201,
+    "risk_rejected_signals": 11,
+    "starting_balance": 10000.0,
+    "total_return_pct": 0.015842499999980646,
+    "trade_count": 37,
+    "win_rate_pct": 78.37837837837837,
+    "worst_trade": -0.24450000000001637
+  },
+  "rejected_signals": [
+    {
+      "instrument": "EURJPY",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_TREND_PULLBACK_CONFIRMED",
+      "timestamp": "2026-02-24T07:44:00+00:00"
+    },
+    {
+      "instrument": "EURJPY",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_TREND_PULLBACK_CONFIRMED",
+      "timestamp": "2026-02-24T07:47:00+00:00"
+    },
+    {
+      "instrument": "EURJPY",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_TREND_PULLBACK_CONFIRMED",
+      "timestamp": "2026-02-24T07:50:00+00:00"
+    },
+    {
+      "instrument": "EURJPY",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_TREND_PULLBACK_CONFIRMED",
+      "timestamp": "2026-02-24T07:56:00+00:00"
+    },
+    {
+      "instrument": "EURJPY",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "LONG_TREND_PULLBACK_CONFIRMED",
+      "timestamp": "2026-02-24T07:58:00+00:00"
+    },
+    {
+      "instrument": "EURJPY",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_TREND_PULLBACK_CONFIRMED",
+      "timestamp": "2026-03-13T07:42:00+00:00"
+    },
+    {
+      "instrument": "EURJPY",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_TREND_PULLBACK_CONFIRMED",
+      "timestamp": "2026-03-13T07:49:00+00:00"
+    },
+    {
+      "instrument": "EURJPY",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_TREND_PULLBACK_CONFIRMED",
+      "timestamp": "2026-03-13T07:50:00+00:00"
+    },
+    {
+      "instrument": "EURJPY",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_TREND_PULLBACK_CONFIRMED",
+      "timestamp": "2026-03-30T07:22:00+00:00"
+    },
+    {
+      "instrument": "EURJPY",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_TREND_PULLBACK_CONFIRMED",
+      "timestamp": "2026-03-30T07:23:00+00:00"
+    },
+    {
+      "instrument": "EURJPY",
+      "reason": "max_trades_per_day_reached",
+      "signal_reason": "SHORT_TREND_PULLBACK_CONFIRMED",
+      "timestamp": "2026-03-30T07:24:00+00:00"
+    }
+  ]
+}

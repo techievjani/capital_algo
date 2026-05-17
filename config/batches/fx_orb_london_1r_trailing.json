@@ -1,0 +1,49 @@
+{
+  "batch_id": "fx_orb_london_1r_trailing",
+  "symbols": [
+    "EURJPY",
+    "USDCHF",
+    "USDJPY",
+    "AUDUSD"
+  ],
+  "sessions": [
+    "london_fx"
+  ],
+  "timeframe": "MINUTE",
+  "target_r_variants": [1.0],
+  "backtest_overrides": {
+    "trailing_stop": {
+      "enabled": true,
+      "activation_r": 0.5,
+      "distance_r": 0.5
+    }
+  },
+  "orb": {
+    "opening_range_minutes": 15,
+    "trade_direction": "both",
+    "entry_buffer_points": 0,
+    "stop_loss_mode": "opposite_range",
+    "atr_period": 14,
+    "atr_stop_multiplier": 1.0,
+    "ema_period": 20,
+    "use_vwap_filter": true,
+    "use_ema_filter": true,
+    "allow_missing_trend_filter": true,
+    "max_spread_points_by_symbol": {
+      "EURJPY": 0.04,
+      "USDCHF": 0.0004,
+      "USDJPY": 0.03,
+      "AUDUSD": 0.0004
+    },
+    "require_spread_data": false,
+    "max_opening_range_points_by_symbol": {
+      "EURJPY": 0.35,
+      "USDCHF": 0.0030,
+      "USDJPY": 0.30,
+      "AUDUSD": 0.0030
+    },
+    "take_profit_r_multiple": 1.0,
+    "max_trades_per_session": 2,
+    "close_at_session_end": true
+  }
+}

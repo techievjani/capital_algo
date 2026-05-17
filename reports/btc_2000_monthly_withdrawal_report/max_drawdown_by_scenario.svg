@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" viewBox="0 0 980 420">
+<style>text{font-family:Arial,sans-serif;fill:#1f2937}.grid{stroke:#e5e7eb}.axis{stroke:#9ca3af}.line1{fill:none;stroke:#2563eb;stroke-width:2.5}.line2{fill:none;stroke:#16a34a;stroke-width:2.5}.line3{fill:none;stroke:#dc2626;stroke-width:2.5}.line4{fill:none;stroke:#9333ea;stroke-width:2.5}.barpos{fill:#16a34a}.barneg{fill:#dc2626}.muted{fill:#6b7280;font-size:12px}.title{font-size:20px;font-weight:700}.label{font-size:12px}</style>
+<rect width="100%" height="100%" fill="#fff"/>
+<text class="title" x="24" y="34">Max Drawdown by Scenario</text>
+<line class="axis" x1="80" x2="956" y1="86.5" y2="86.5"/>
+<rect class="barneg" x="126.0" y="86.5" width="127.0" height="17.8" rx="3"/>
+<text class="label" text-anchor="middle" x="189.5" y="80.5">-161</text>
+<text class="muted" text-anchor="middle" x="189.5" y="378">no_withdrawal</text>
+<rect class="barneg" x="345.0" y="86.5" width="127.0" height="221.0" rx="3"/>
+<text class="label" text-anchor="middle" x="408.5" y="80.5">-2,000</text>
+<text class="muted" text-anchor="middle" x="408.5" y="378">forced_500_monthly</text>
+<rect class="barneg" x="564.0" y="86.5" width="127.0" height="48.6" rx="3"/>
+<text class="label" text-anchor="middle" x="627.5" y="80.5">-440</text>
+<text class="muted" text-anchor="middle" x="627.5" y="378">profit_only_up_to_500</text>
+<rect class="barneg" x="783.0" y="86.5" width="127.0" height="57.6" rx="3"/>
+<text class="label" text-anchor="middle" x="846.5" y="80.5">-521</text>
+<text class="muted" text-anchor="middle" x="846.5" y="378">full_500_if_balance_above_2000</text>
+</svg>

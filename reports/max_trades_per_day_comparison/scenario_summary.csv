@@ -1,0 +1,9 @@
+config,policy,ending_balance,withdrawn_total,trading_profit,max_drawdown,trades,profit_factor,wiped_out
+Current BTC 2 / Gold 3,Withdraw 50% monthly profit,11275.49,6400.63,12676.11,-3833.62,674,1.3188,No
+Both 4/day,Withdraw 50% monthly profit,13270.28,8270.28,16540.56,-3807.28,1071,1.22,No
+BTC 4 / Gold 3,Withdraw 50% monthly profit,12389.98,7389.98,14779.95,-3463.28,1006,1.2,No
+BTC 2 / Gold 4,Withdraw 50% monthly profit,12130.76,7154.8,14285.56,-4061.28,739,1.33,No
+Current BTC 2 / Gold 3,Forced $1000/month,2339.79,7000.0,4339.79,-3413.08,674,1.22,No
+Both 4/day,Forced $1000/month,6975.12,7000.0,8975.12,-3333.51,1071,1.19,No
+BTC 4 / Gold 3,Forced $1000/month,6042.79,7000.0,8042.79,-3284.53,1006,1.18,No
+BTC 2 / Gold 4,Forced $1000/month,2867.13,7000.0,4867.13,-3351.6,739,1.23,No

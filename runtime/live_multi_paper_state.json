@@ -1,0 +1,13 @@
+{
+  "daily_trade_counts": {},
+  "last_processed_candle": {
+    "btc_gold_hybrid:BTCUSD": "2026-05-17T08:09:00+00:00"
+  },
+  "last_signal_candle": {},
+  "metadata": {
+    "last_reconciled_at": "2026-05-17T08:10:01.116449+00:00"
+  },
+  "open_positions": {},
+  "order_events": [],
+  "pending_orders": {}
+}

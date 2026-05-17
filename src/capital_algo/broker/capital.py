@@ -220,22 +220,10 @@ class CapitalClient:
         body: dict[str, Any] | None = None,
         include_session: bool = True,
     ) -> tuple[dict[str, Any], dict[str, str]]:
-        request_headers = {"Content-Type": "application/json"}
-        if headers:
-            request_headers.update(headers)
-        if include_session:
-            self._ensure_session()
-            request_headers["CST"] = self.session.cst
-            request_headers["X-SECURITY-TOKEN"] = self.session.security_token
-
         payload = json.dumps(body).encode("utf-8") if body is not None else None
-        request = urllib.request.Request(
-            self.base_url + path,
-            data=payload,
-            headers=request_headers,
-            method=method,
-        )
+        refreshed_session = False
         for attempt in range(self.max_retries + 1):
+            request = self._build_request(method, path, payload, headers, include_session)
             try:
                 with urllib.request.urlopen(request, timeout=self.timeout_seconds, context=self.ssl_context) as response:
                     text = response.read().decode("utf-8")
@@ -248,13 +236,48 @@ class CapitalClient:
                 except json.JSONDecodeError:
                     parsed = {}
                 code = parsed.get("errorCode") or exc.reason or exc.code
+                if exc.code == 401 and include_session and not refreshed_session:
+                    refreshed_session = True
+                    self.session = None
+                    self.connect()
+                    continue
                 if exc.code == 429 and attempt < self.max_retries:
                     time.sleep(2**attempt)
                     continue
                 raise CapitalAPIError(f"Capital.com API error {exc.code}: {code}") from exc
             except urllib.error.URLError as exc:
+                if attempt < self.max_retries:
+                    time.sleep(2**attempt)
+                    continue
                 raise CapitalAPIError(f"Capital.com API connection failed: {exc.reason}") from exc
+            except TimeoutError as exc:
+                if attempt < self.max_retries:
+                    time.sleep(2**attempt)
+                    continue
+                raise CapitalAPIError(f"Capital.com API read timed out: {exc}") from exc
         raise CapitalAPIError("Capital.com API request failed after retries")
+
+    def _build_request(
+        self,
+        method: str,
+        path: str,
+        payload: bytes | None,
+        headers: dict[str, str] | None,
+        include_session: bool,
+    ) -> urllib.request.Request:
+        request_headers = {"Content-Type": "application/json"}
+        if headers:
+            request_headers.update(headers)
+        if include_session:
+            self._ensure_session()
+            request_headers["CST"] = self.session.cst
+            request_headers["X-SECURITY-TOKEN"] = self.session.security_token
+        return urllib.request.Request(
+            self.base_url + path,
+            data=payload,
+            headers=request_headers,
+            method=method,
+        )
 
     def _ensure_session(self) -> None:
         if self.session is None:

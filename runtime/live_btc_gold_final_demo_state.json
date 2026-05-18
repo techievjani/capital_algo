@@ -1,18 +1,137 @@
 {
-  "daily_trade_counts": {},
-  "last_processed_candle": {
-    "btc_gold_dynamic_1_5:BTCUSD": "2026-05-17T16:29:00+00:00"
+  "daily_trade_counts": {
+    "BTCUSD:2026-05-18": 3,
+    "GLOBAL:2026-05-18": 3
   },
-  "last_signal_candle": {},
+  "last_processed_candle": {
+    "btc_gold_dynamic_1_5:BTCUSD": "2026-05-18T10:47:00+00:00",
+    "btc_gold_dynamic_1_5:GOLD": "2026-05-18T10:47:00+00:00"
+  },
+  "last_signal_candle": {
+    "btc_gold_dynamic_1_5:BTCUSD": "2026-05-18T10:23:00+00:00"
+  },
   "metadata": {
-    "last_reconciled_at": "2026-05-17T16:30:21.990086+00:00",
+    "last_reconciled_at": "2026-05-18T10:48:19.562399+00:00",
     "notifications": {
-      "last_heartbeat_at": "2026-05-17T16:28:06.685265+00:00",
-      "last_startup_at": "2026-05-17T16:27:58.740656+00:00",
+      "last_daily_summary_date": "2026-05-17",
+      "last_heartbeat_at": "2026-05-18T10:31:56.408727+00:00",
+      "last_startup_at": "2026-05-17T16:41:10.962989+00:00",
+      "sent_event_ids": [
+        "open:000940dd-0055-311e-0000-000083435dc0",
+        "closed:000940dd-0055-311e-0000-000083435dc0",
+        "open:000940dd-0055-311e-0000-000083435ddb",
+        "closed:000940dd-0055-311e-0000-000083435ddb",
+        "open:000940dd-0055-311e-0000-000083435e4b",
+        "closed:000940dd-0055-311e-0000-000083435e4b"
+      ],
       "startup_sent": true
     }
   },
   "open_positions": {},
-  "order_events": [],
+  "order_events": [
+    {
+      "broker_deal_id": "",
+      "broker_deal_reference": "",
+      "candle_time": "2026-05-17T16:44:00+00:00",
+      "event": "rejected",
+      "group": "btc_gold_dynamic_1_5",
+      "reason": "Capital.com API error 400: error.invalid.stoploss.maxvalue: 78108.65",
+      "strategy_kind": "asset_hybrid",
+      "symbol": "BTCUSD",
+      "timestamp_utc": "2026-05-17T16:45:24.118151+00:00"
+    },
+    {
+      "broker_deal_id": "",
+      "broker_deal_reference": "",
+      "candle_time": "2026-05-17T16:45:00+00:00",
+      "event": "rejected",
+      "group": "btc_gold_dynamic_1_5",
+      "reason": "Capital.com API error 400: error.invalid.stoploss.maxvalue: 78080.1",
+      "strategy_kind": "asset_hybrid",
+      "symbol": "BTCUSD",
+      "timestamp_utc": "2026-05-17T16:46:20.389299+00:00"
+    },
+    {
+      "broker_deal_id": "",
+      "broker_deal_reference": "",
+      "candle_time": "2026-05-17T16:46:00+00:00",
+      "event": "rejected",
+      "group": "btc_gold_dynamic_1_5",
+      "reason": "Capital.com API error 400: error.invalid.stoploss.maxvalue: 78056.6",
+      "strategy_kind": "asset_hybrid",
+      "symbol": "BTCUSD",
+      "timestamp_utc": "2026-05-17T16:47:16.540937+00:00"
+    },
+    {
+      "broker_deal_id": "",
+      "broker_deal_reference": "",
+      "candle_time": "2026-05-17T16:47:00+00:00",
+      "event": "rejected",
+      "group": "btc_gold_dynamic_1_5",
+      "reason": "Capital.com API error 400: error.invalid.stoploss.maxvalue: 78036.9",
+      "strategy_kind": "asset_hybrid",
+      "symbol": "BTCUSD",
+      "timestamp_utc": "2026-05-17T16:48:12.786427+00:00"
+    },
+    {
+      "broker_deal_id": "",
+      "broker_deal_reference": "",
+      "candle_time": "2026-05-17T16:48:00+00:00",
+      "event": "rejected",
+      "group": "btc_gold_dynamic_1_5",
+      "reason": "Capital.com API error 400: error.invalid.stoploss.maxvalue: 78041.55",
+      "strategy_kind": "asset_hybrid",
+      "symbol": "BTCUSD",
+      "timestamp_utc": "2026-05-17T16:49:09.132990+00:00"
+    },
+    {
+      "action": "SELL",
+      "broker_deal_id": "000940dd-0055-311e-0000-000083435dc0",
+      "broker_deal_reference": "o_5100b65e-21d4-43ea-a192-99ca5a44d2f5",
+      "broker_order_id": "000940dd-0055-311e-0000-000083435dc0",
+      "candle_time": "2026-05-18T10:04:00+00:00",
+      "entry_price": 76821.25,
+      "event": "filled",
+      "group": "btc_gold_dynamic_1_5",
+      "size": 2.769268919732496,
+      "stop_loss": 76880.70714285714,
+      "strategy_kind": "asset_hybrid",
+      "symbol": "BTCUSD",
+      "take_profit": 76642.87857142856,
+      "timestamp_utc": "2026-05-18T10:05:24.064385+00:00"
+    },
+    {
+      "action": "SELL",
+      "broker_deal_id": "000940dd-0055-311e-0000-000083435ddb",
+      "broker_deal_reference": "o_f1f899e6-f13d-4140-8dd1-8672de374ae5",
+      "broker_order_id": "000940dd-0055-311e-0000-000083435ddb",
+      "candle_time": "2026-05-18T10:05:00+00:00",
+      "entry_price": 76821.25,
+      "event": "filled",
+      "group": "btc_gold_dynamic_1_5",
+      "size": 2.744721024456124,
+      "stop_loss": 76880.70714285714,
+      "strategy_kind": "asset_hybrid",
+      "symbol": "BTCUSD",
+      "take_profit": 76642.87857142856,
+      "timestamp_utc": "2026-05-18T10:06:27.861974+00:00"
+    },
+    {
+      "action": "SELL",
+      "broker_deal_id": "000940dd-0055-311e-0000-000083435e4b",
+      "broker_deal_reference": "o_45cbbbc2-3c85-4f33-a968-43debe84a94a",
+      "broker_order_id": "000940dd-0055-311e-0000-000083435e4b",
+      "candle_time": "2026-05-18T10:23:00+00:00",
+      "entry_price": 76714.45,
+      "event": "filled",
+      "group": "btc_gold_dynamic_1_5",
+      "size": 2.76396298220218,
+      "stop_loss": 76775.42142857143,
+      "strategy_kind": "asset_hybrid",
+      "symbol": "BTCUSD",
+      "take_profit": 76531.53571428571,
+      "timestamp_utc": "2026-05-18T10:24:33.972479+00:00"
+    }
+  ],
   "pending_orders": {}
 }
